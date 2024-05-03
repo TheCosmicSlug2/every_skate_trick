@@ -68,11 +68,10 @@ em {
 }
 
 .jeu {
-	border: 2px black;  
 	font-size: 15px;
 	padding: 10px;
 	border-style: solid;
-	background-color: dimgray;
+	background-color: lightgray;
 	color: white;  
 	text-align: center;
 }
