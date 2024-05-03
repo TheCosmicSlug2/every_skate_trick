@@ -1,0 +1,113 @@
+h1 {
+	font-size: 40px;
+	color: white;
+}
+
+h2 {
+	color: white;
+	font-size: 30px;
+	text-align: center;
+	text-decoration: underline;
+}
+
+h3 {
+	font-size: 20px;
+	color: white;
+}
+
+em {
+	font-weight: bold;
+}
+
+.case_jaune {
+	background-color: yellow;
+}
+
+.case_verte {
+	background-color: lightgreen
+}
+
+.case_rouge {
+	background-color: red
+}
+
+.petite_section {
+	padding: 20px;
+	border: 4px solid yellow;  
+	font-size: 15px;
+	border-style: solid;
+	color: black;  
+	text-align: left;  
+	margin-bottom: 10px;
+}
+
+
+.section_images {
+	padding: 20px;
+} 
+
+.frame {
+  	display: flex;
+  	align-items: center; 
+}
+
+.image {
+	padding: 5px;
+    border: 3px solid black;
+    margin: auto;
+   	display: inline-block;
+    box-sizing: border-box;
+}
+
+.legende_photos {
+	background-color:black;
+	color: white;  
+	font-size: 15px;
+	text-align: center;
+	font-style: italic;
+}
+
+.jeu {
+	border: 2px black;  
+	font-size: 15px;
+	padding: 10px;
+	border-style: solid;
+	background-color: dimgray;
+	color: white;  
+	text-align: center;
+}
+
+.contenant_select_image {
+	dispselct_imagelay: flex;
+    align-items: center;
+}
+
+.aligner_horizontalement {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+.aligner_horizontalement select {
+  margin-right: 10px; /* Espacement entre les menus déroulants */
+}
+
+.trick em {
+    font-size: 20px; /* Taille de police par défaut */
+ }
+
+.diagonale {
+	position: absolute; /* Position absolue */
+    top: 2000px; /* Distance depuis le haut */
+    left: 400px;
+    width: 700px; /* Largeur du conteneur */
+ }
+
+ .diagonale span {
+    display: block;
+    font-size: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-35deg); /* Rotation de 45 degrés */
+    transform-origin: 0 0; /* Point d'origine de la rotation */
+  }

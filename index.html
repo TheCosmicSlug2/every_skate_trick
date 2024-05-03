@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/tricks.css">
+</head>
+
+<body>
+	<section class="jeu">
+
+		<select id="choix_stance" onchange="calculer()">
+				<option value="normal"> Stance : Normale </option>
+				<option value="fakie"> Stance : Fakie </option>
+		</select>
+
+		<div class="aligner_horizontalement" onchange="calculer()">			
+
+			<select id="choix_180" >
+				<option value=""> (nothing) </option>
+				<option value="1BS180/"> BS 180 </option>
+				<option value="2BS180/"> BS 360 </option>
+				<option value="1FS180/"> FS 180 </option>
+				<option value="2FS180/"> FS 360 </option>
+			</select>
+
+			<select id="choix_shuv">
+				<option value=""> (nothing) </option>
+				<option value="1BSshuv/"> BS shuv 180 </option>
+				<option value="2BSshuv/"> BS shuv 360 </option>
+				<option value="1FSshuv/"> FS shuv 180 </option>
+				<option value="2FSshuv/"> FS shuv 360 </option>
+			</select>
+
+			<select id="choix_flip">
+				<option value=""> (nothing) </option>
+				<option value="1kickflip/"> 1 kickflip </option>
+				<option value="2kickflip/"> 2 kickflip </option>
+				<option value="1heelflip/"> 1 heelflip </option>
+				<option value="2heelflip/"> 2 heelflip </option>
+			</select>
+		</div>
+
+		<p><em style="font-size: 20px;">=</em></p>
+
+		<p id="nom_trick_ecran">
+			<em style="font-size: 20px;"> No board movement !</em>
+		</p>
+
+		<img id="trick_image" height="300px" >
+
+		<p id="message_erreur"></p>
+
+	</section>
+
+</body>
+
+
+<script src="js/dic_tricks.js"></script>
+
+<script>
+
+
+	// on "get" l'ID du titre de l'image, du message d'erreur et de l'image sur la page  
+
+	const selecteur_180 = document.getElementById("choix_180");
+	const selecteur_shuv = document.getElementById("choix_shuv");
+	const selecteur_flip = document.getElementById("choix_flip");
+
+	const nom_trick_ecran = document.getElementById("nom_trick_ecran");
+	const trick_image = document.getElementById("trick_image");
+	const message_erreur = document.getElementById("message_erreur");
+
+
+	// On initialise quelques constantes de tailles, de couleur... pour les widgets
+
+	var trick_font_size = "30px";
+
+
+	// Définir le contenu des menus pour que le programme puisse les reconnaitre
+
+	var liste_menus = ["choix_180", "choix_shuv", "choix_flip"];
+	var liste_morceaux_base = ["1BS180/", "2BS180/","1FS180/", "2FS180/",  "1BSshuv/", "2BSshuv/", "1FSshuv/", "2FSshuv/", "1kickflip/", 
+				"2kickflip/", "1heelflip/", "2heelflip/"];
+
+
+	// Initialiser l'image de base 
+
+	var titre_pas_de_trick = dic_tricks[""][0]; // Premier élément du dictionnaire = bulldog
+	var chemin_acces_bulldog = "https://lh3.googleusercontent.com/pw/" + dic_tricks[""][1][0];
+
+	trick_image.title = titre_pas_de_trick;
+	trick_image.src = chemin_acces_bulldog;
+
+
+	// On initialise la couleur des cases des menus (toutes les bases sont NORMALEMENT possibles..., donc on peint tout en vert) 
+
+	changer_couleur_tous_les_menus(liste_morceaux_base);
+
+
+
+	// --------- Fonctions pour montrer ou cacher le message d'erreur (si le trick n'est pas trouvé) ------------ //
+
+	// Cacher
+
+	function cacher_message_erreur() {
+
+		message_erreur.style.display = "none";
+	}
+
+	// Montrer
+
+	function montrer_message_erreur(text, couleur) {
+
+		message_erreur.style.display = "block";
+		message_erreur.textContent = text;
+		message_erreur.style.color = couleur;		
+	}
+
+	// ---------------------------------------------------------- //
+
+
+	// Fonction qu'on appelle pour récupérer le "squelette" du trick (nb et nature des rotations) 
+
+	function get_trick_squelette() {
+		
+		const _180 = selecteur_180.value;
+		const shuv = selecteur_shuv.value;
+		const flip = selecteur_flip.value;
+
+		var local_trick_squelette = _180 + shuv + flip;
+		var local_liste_bases_squelette = [];
+
+		if (_180) {
+			local_liste_bases_squelette.push(_180);
+		}
+
+		if (shuv) {
+			local_liste_bases_squelette.push(shuv);
+		}
+
+		if (flip) {
+			local_liste_bases_squelette.push(flip);
+		}
+
+		return [local_trick_squelette, local_liste_bases_squelette];
+	}
+
+
+	// ------------------------------------ Fonctions de "calcul" ----------------------------------- //
+
+	// Fonction pour trouver toutes les composantes de base (180, shuv ou flip) de ces "tricks proches"
+
+	function trouver_bases_proches(p_liste_bases_squelette) {
+
+
+		// On trouve les tricks proches
+		const liste_tricks_proches = trouver_tricks_proches(p_liste_bases_squelette);
+
+		// On décompose tous les termes de cette liste en morceaux de base, pour trouver lesquels n'apparaissent pas pour pouvoir colorier les cases en rouge 
+		const liste_morceaux_base_choisis = decomposer_tricks_proches(liste_tricks_proches);
+
+		console.log("liste des bases possibles : " + liste_morceaux_base_choisis);
+
+		return liste_morceaux_base_choisis // On retourne la liste de tous les morceaux de base, c'est à dire les cases que l'on peut colorier en vert 
+	}
+
+
+	// Fonction pour ajouter ces base à une liste des bases possibles
+
+	function decomposer_tricks_proches(p_liste_tricks_proches) {
+
+		const local_liste_morceaux_base_choisis = [];
+
+		for (const trick_proche of p_liste_tricks_proches) { // Pour chaque trick proche qu'on a trouvé 
+			for (const morceau_base of liste_morceaux_base) { // Pour chaque morceau de base 
+				if (trick_proche.includes(morceau_base) && !local_liste_morceaux_base_choisis.includes(morceau_base)) { // Si on trouve dans le trick proche un morceau de base + Si ce morceau de base n'est pas déjà dans la liste de NOS morceaux de base (ceux du trick de l'utilisateur 
+					local_liste_morceaux_base_choisis.push(morceau_base); // On ajoute ce morceau de base à la liste 
+				}
+			}
+		}
+
+		return local_liste_morceaux_base_choisis
+	}
+
+
+
+	// Fonction pour trouver tous les tricks qui possèdent les même rotations que le trick de base
+
+	function trouver_tricks_proches(p_liste_bases_squelette) {
+
+		var local_liste_tricks_proches = [];
+
+		if (p_liste_bases_squelette.length === 0) { // Si le squelette du trick dékà présent n'existe pas (longueur = 0)
+			return liste_morceaux_base; // Tous les morceaux de base sont possibles 
+		}
+
+		else if (p_liste_bases_squelette.length === 1) { // Si le squelette possède 1 valeur
+			for (key of Object.keys(dic_tricks)) { // On teste pour chaque élément du dictionnaire
+				trick_proche = key;
+
+				if (trick_proche.includes(p_liste_bases_squelette[0])){ // Si il est pas dans la liste des tricks proches
+					local_liste_tricks_proches.push(trick_proche); // On l'ajoute
+				}
+			}
+		} 
+
+		else if (p_liste_bases_squelette.length === 2) { // idem pour une longueur de 2
+			for (key of Object.keys(dic_tricks)) {
+				trick_proche = key;
+
+				if (trick_proche.includes(p_liste_bases_squelette[0]) && trick_proche.includes(p_liste_bases_squelette[1])) {
+					local_liste_tricks_proches.push(trick_proche);
+				}
+			}
+		}
+
+		else { // Si la longueur du squelette est > à 3 (impossible en théorie) 
+			return []; // Le trick est déjà complet, donc il n'y a plus de morceaux de base à proposer 
+		}
+
+		console.log("Liste de tous les tricks proches : " + local_liste_tricks_proches);
+
+		return local_liste_tricks_proches;
+
+	}
+
+	// ------------------------------------------------------------------------------------------- //
+
+
+
+	// Fonction qu'on appelle pour récupérer la stance (uniquement "normal" ou "fakie" => Pas de "switch" ou "nollie") 
+
+	function get_stance() {
+		const selecteur_stance = document.getElementById("choix_stance");
+		const get_stance = selecteur_stance[selecteur_stance.selectedIndex];
+		stance = get_stance.value;
+
+		return stance;
+	}
+
+
+
+	// ---------------- Fonctions pour changer les couleurs des menus -------------------------- //
+
+
+	// Fonction pour changer la couleur de tous les menus
+
+	function changer_couleur_tous_les_menus(liste_cases_possibles) {
+
+		for (const menu of liste_menus) {
+			changer_couleur_un_menu(menu, liste_cases_possibles);
+		}
+	}
+
+	// FOnction pour changer la couleur d'un seul menu
+
+	function changer_couleur_un_menu(menu, liste_cases_possibles) {
+
+		var liste_options = ['option:nth-child(2)','option:nth-child(3)', 'option:nth-child(4)', 'option:nth-child(5)'];
+
+		const selecteur_menu = document.getElementById(menu); 
+
+		selecteur_menu.style.backgroundColor = "lightgrey";
+
+		// On colorie la première case de chaque menu (  "(rien)"  ) en jaune (pour le style)
+		var premiere_option = selecteur_menu.querySelector("option:first-child")
+		premiere_option.classList.add("case_jaune");
+
+		selecteur_menu.querySelectorAll("option:not(:first-child)").forEach(option => {
+
+			const nom_option = option.value;
+
+			if (liste_cases_possibles.includes(nom_option)) { // Si cette case (donc morceau de base) apparait dans la liste des morceaux de base 
+				option.classList.remove("case_rouge");
+				option.classList.add("case_verte"); // On la peint en vert 
+				console.log("vert ajouté");
+
+			} else {
+				option.classList.remove("case_verte");
+				option.classList.add('case_rouge'); // On la peint en rouge 
+				console.log("rouge ajouté");
+			}
+		})
+	}
+
+	// ------------------------------------------------------------------------------------ //
+
+
+
+	// -------- Fonction pour les affichages de tricks à l'écran (titre + image) ---------- //
+
+	// Afficher le bulldog (titre + image)
+
+	function afficher_pas_de_trick() {
+		nom_trick_ecran.innerHTML = "<em style='font-size: 20px'> " + titre_pas_de_trick + " </em>";
+		trick_image.src = chemin_acces_bulldog;
+		trick_image.title = titre_pas_de_trick;
+	}
+
+
+	// Trouver le nom réel du trick
+	 
+	function obtenir_nom_trick(trick_squelette) { // On trouve le nom du trick qui sera affiché à l'écran
+
+    	const stance = get_stance();
+    	const trick_data = dic_tricks[trick_squelette];
+    	if (stance === "normal") {
+        	return trick_data[0];
+    	} else {
+        	return "fakie " + trick_data[0];
+    	}
+	}
+
+	// L'afficher ici
+
+	function afficher_nom_trick (nom_trick) { // On affiche ce nom
+
+		// On affiche le vrai nom du trick sur la page
+		nom_trick_ecran.innerHTML = "<em style='font-size: 20px'>" + nom_trick + '</em>';
+	}
+
+
+	// Trouver l'ID du trick
+
+	function obtenir_ID_trick(trick_squelette) { // On trouve l'ID du gif dans le dictionnaire
+	    const stance = get_stance();
+	    const trick_data = dic_tricks[trick_squelette];
+	    let ID;
+	    if (stance == "normal") {
+	        ID = trick_data[1][0];
+	    } else {
+	        ID = trick_data[1][1];
+	    }
+	    if (ID == "") {
+	        const message = stance == "normal" ? "=> The trick is only in fakie stance" : "=> The trick is only in normal stance";
+	        montrer_message_erreur(message, "yellow");
+	    }
+	    return ID;
+	}
+
+
+	// L'afficher ici
+
+	function afficher_image_trick(ID, nom_trick) { // On affiche ce gif
+	    const chemin_acces = "https://lh3.googleusercontent.com/pw/" + ID;
+	    trick_image.src = chemin_acces;
+	    trick_image.title = nom_trick;
+	}
+
+	// -------------------------------------------------------------------- //
+
+
+
+
+
+	// ---------------- Fonction principale qui s'effectue lorsqu'on change la valuer d'un menu déroulant ---------------- //
+
+	function calculer() {
+
+		cacher_message_erreur();
+
+		const [trick_squelette, liste_bases_squelette] = get_trick_squelette();
+
+		console.log("Trick demandé par l'utilisateur : " + trick_squelette);
+		console.log("Trick démantelé : ");
+		console.log(liste_bases_squelette);
+
+		liste_cases_possibles = trouver_bases_proches(liste_bases_squelette);
+
+		changer_couleur_tous_les_menus(liste_cases_possibles);
+
+		if (trick_squelette == "") {
+			afficher_pas_de_trick();
+			return // Comme il n'y a pas de trick, ça ne sert à rien de calculer le reste 
+		}
+		
+		try {
+			const nom_trick = obtenir_nom_trick(trick_squelette);
+			afficher_nom_trick(nom_trick);
+
+			const ID = obtenir_ID_trick(trick_squelette);
+			afficher_image_trick(ID, nom_trick);
+
+    	} catch (erreur) {
+        	montrer_message_erreur("! " + trick_squelette + " : Ce trick n'est pas défini !", "coral");
+   	 	}
+	}
+
+	</script>
+	
+</html>
