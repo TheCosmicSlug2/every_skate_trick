@@ -70,6 +70,7 @@ em {
 .jeu {
 	font-size: 15px;
 	padding: 10px;
+	background-color: dimgray;
 	border-style: solid;
 	color: white;  
 	text-align: center;
