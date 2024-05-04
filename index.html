@@ -50,6 +50,8 @@
 
 		<p id="message_erreur"></p>
 
+		<div id="labels-container"></div>
+
 	</section>
 
 </body>
@@ -79,6 +81,7 @@
 	// Définir le contenu des menus pour que le programme puisse les reconnaitre
 
 	var liste_menus = ["choix_180", "choix_shuv", "choix_flip"];
+	var liste_valeurs_menus = ["BS 180", "BS 360", "FS 180", "FS 360", "BS shuv 180", "BS shuv 360", "FS shuv 180", "FS shuv 360", "1 kickflip", "2 kickflip", "1 heelflip", "2 heelflip"]
 	var liste_morceaux_base = ["1BS180/", "2BS180/","1FS180/", "2FS180/",  "1BSshuv/", "2BSshuv/", "1FSshuv/", "2FSshuv/", "1kickflip/", 
 				"2kickflip/", "1heelflip/", "2heelflip/"];
 
@@ -353,7 +356,7 @@
 
 
 
-	// ---------------- Fonction principale qui s'effectue lorsqu'on change la valuer d'un menu déroulant ---------------- //
+	// ---------------- Fonction principale qui s'effectue lorsqu'on change la valeur d'un menu déroulant ---------------- //
 
 	function calculer() {
 
@@ -384,6 +387,146 @@
     	} catch (erreur) {
         	montrer_message_erreur("! " + trick_squelette + " : This trick is not defined yet !", "coral");
    	 	}
+	}
+
+	// Pour créer l'ensemble des labels des tricks //
+
+	var liste_tricks = [];
+	for (var key in dic_tricks) {
+	    liste_tricks.push(dic_tricks[key][0]);
+	}
+
+
+    // Récupérer le conteneur des labels
+    var labelsContainer = document.getElementById('labels-container');
+
+    // Parcourir la liste et créer les labels correspondants
+    liste_tricks.forEach(function(element) {
+        var label = document.createElement('label');
+        label.textContent = element;
+        label.className = 'clickable-label';
+
+        // Ajouter un événement de clic à chaque label
+        label.addEventListener('click', function() {
+            console.log('Vous avez cliqué sur ' + element);
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Optionnel pour un défilement fluide
+            });
+
+            traiter_clic_sur_label(element)
+
+        });
+
+        // Ajouter le label au conteneur
+        labelsContainer.appendChild(label);
+    });
+
+
+
+    function traiter_clic_sur_label(element) {
+    	trick_squelette = trouver_Cle_Liste_Cle_ParValeur(dic_tricks, element)
+        console.log(trick_squelette)
+
+        var liste_bases_squelette = trick_squelette.match(/[^\/]+\/?/g);
+
+        // transformer ce trick_squelette en une liste 
+
+        // On a juste besoin de la liste
+
+        var valeurs_dans_menus_deroulant = []
+
+        if (liste_bases_squelette === null) {
+        	var longueur = 0;
+        }
+        else {
+        	var longueur = liste_bases_squelette.length;
+        }
+        
+
+        // Changer les tricks en "vrai noms":
+
+        if (longueur === 0) {
+        	valeurs_dans_menus_deroulant = ["", "", ""]
+        }
+        else if (longueur === 1) {
+        	value_1 = liste_bases_squelette[0];
+        	idx = TrouverIndex(value_1)
+
+        	if (idx < 4) {
+        		valeurs_dans_menus_deroulant = [value_1, "", ""]
+        	}
+        	else if (idx < 8) {
+        		valeurs_dans_menus_deroulant = ["", value_1, ""]
+        	}
+        	else {
+        		valeurs_dans_menus_deroulant = ["", "", value_1]
+        	}
+
+        	
+        	
+        }
+        else if (longueur === 2){
+        	value_1 = liste_bases_squelette[0];
+        	value_2 = liste_bases_squelette[1];
+
+        	idx_1 = TrouverIndex(value_1);
+        	idx_2 = TrouverIndex(value_2);
+
+        	if (idx_1 < 4) {
+        		if (idx_2 < 8) {
+        			valeurs_dans_menus_deroulant = [value_1, value_2, ""]
+        		}
+        		else if (idx_2 < 12) {
+        			valeurs_dans_menus_deroulant = [value_1, "", value_2]
+        		}
+        	}
+        	else if (idx_1 < 8) {
+        		valeurs_dans_menus_deroulant = ["", value_1, value_2]
+        	}
+
+
+        }
+        else if (longueur === 3) {
+        	value_1 = liste_bases_squelette[0];
+        	value_2 = liste_bases_squelette[1];
+        	value_3 = liste_bases_squelette[2];
+
+        	idx_1 = TrouverIndex(value_1)
+        	idx_2 = TrouverIndex(value_2)
+        	idx_3 = TrouverIndex(value_3)
+
+        	valeurs_dans_menus_deroulant = [value_1, value_2, value_3]
+
+        
+
+        }
+
+        selecteur_180.value = valeurs_dans_menus_deroulant[0];
+        selecteur_shuv.value = valeurs_dans_menus_deroulant[1];
+        selecteur_flip.value = valeurs_dans_menus_deroulant[2];
+
+        calculer()
+
+    }
+
+
+    function trouver_Cle_Liste_Cle_ParValeur(objet, valeurRecherchee) {
+	    for (var local_trick_squelette in objet) {
+	        if (objet.hasOwnProperty(local_trick_squelette) && objet[local_trick_squelette][0] === valeurRecherchee) {
+	        	//local_liste_bases_squelette = local_trick_squelette.split("/").filter(Boolean);;
+	            return local_trick_squelette;
+	        }
+	    }
+	    return null; // Retourne null si la valeur n'est pas trouvée
+	}
+
+	function TrouverIndex(nom){
+		idx = liste_morceaux_base.indexOf(nom);
+
+		return idx
+
 	}
 
 	</script>
