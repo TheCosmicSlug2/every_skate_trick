@@ -1,3 +1,7 @@
+body {
+	margin-bottom: 50px; /* Ajustez cette valeur en fonction de la hauteur de votre barre des tâches */
+}
+
 h1 {
 	font-size: 40px;
 	color: white;
@@ -68,10 +72,11 @@ em {
 }
 
 .jeu {
+	border: 2px black;  
 	font-size: 15px;
 	padding: 10px;
-	background-color: dimgray;
 	border-style: solid;
+	background-color: dimgray;
 	color: white;  
 	text-align: center;
 }
@@ -110,3 +115,24 @@ em {
     transform: translate(-50%, -50%) rotate(-35deg); /* Rotation de 45 degrés */
     transform-origin: 0 0; /* Point d'origine de la rotation */
   }
+
+
+ /* Style pour les labels */
+.clickable-label {
+    cursor: pointer;
+    width: fit-content;
+    padding: 0px;
+    margin: 0px;
+}
+
+.clickable-label:hover {
+    transform: scale(1.1); /* Agrandit le label de 10% */
+}
+
+/* Style pour le conteneur principal */
+#labels-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+}
