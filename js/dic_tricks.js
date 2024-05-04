@@ -186,7 +186,7 @@ var dic_tricks = {	"" : ["No board movement !", [
 						"ABLVV879h2ysxQexUyy7VP3G2cfSeFQTs35RTYYUjZowWMSnxaT4dKRmX4n9MbMAfxzw9TjRyppKTJw1lKXeST7d0-a5lP2e5uCYuiE0W3ZdrclPDh7h0UMkMFfK_ArpeUlexAR4Z4fwOg1yfGOy2Z1Yf_tu",
 						"ABLVV84tVPhDDRh8cDGOFWSb5q2Jp_0ZTyFo3SEDmd0V9tDXGGD8ravny-mQRebg932uI3nSD7ldKY_-blfv-jMomrwyBQ0QKt233bwtAvlqFf7v8AZ5WZBTeErUsu-rvPud2v-wugVwZLOOWMoJNN1edS7a"]],
 
-					"1BSshuv/2kickflip/" : ["Varial Double Flip", [
+					"1BSshuv/2kickflip/" : ["Nightmare Flip", [
 						"AP1GczPsmwCdZsBp6yHzU0p2UMd3w6NvxhTTmXMdhisJu47DMHUe2v4FcPFcgqQSrxsAUqE6IzRmrdTeGqfwfU1rd7wIpn0PTbKTXo4Si2Z55NUK4x_sA5IbP6zlL4ZUL9UtxtEJJkJIKSLH-oMYQ3I0HPJE",
 						"AP1GczPy35YlklozRRUePFm7ebbJnVNM1a8-N6gRxYqDfFEZmEH6IVpQZL5Eu1Lpqj7xSM1qUETQCDVq5wcL5kgaKznu9ySh4Yhg30CwqUvsxFH_mdHS_Io8-OcVPw3-wi70gM16OkeDHCZ5_5Pdzo2mJTex"]],
 
