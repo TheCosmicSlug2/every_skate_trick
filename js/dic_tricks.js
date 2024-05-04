@@ -7,7 +7,7 @@ Le dictionnaire est présenté de la façon suivante :
 */
 
 
-var dic_tricks = {	"" : ["La board ne fait aucun trick !", [
+var dic_tricks = {	"" : ["No board movement !", [
 						"AP1GczONXTD5eCNN0j0r37uB9YfyoXHTCQUqq8nn-GiTejxsAII9pbtB_62gz7fjG0AgQ1X5c9-ynB0wnupoJpc4qoiHJBrUreBe-MtJes4pXv_tonGWZKf-XvWu2pyNz2cnwouYCtyPNfLyXAlaKD4pS5J0"]], 
 
 					"ollie" : ["Ollie", [
@@ -24,7 +24,7 @@ var dic_tricks = {	"" : ["La board ne fait aucun trick !", [
 						"ABLVV845IcI3Uqm5S_kcB_eqNqZzc8meu1LNaVzSab4XIRZiGjkpWb26MJPukfLLlTj5e1ig4IaMv6BUDMpw5SINnHr9hy1N0ib1CPZ3W1N_rQO71I9kbr-nD3lLux7tFTtGa4YTcboI-OjXuVa6hd4Gc_k",
 						"ABLVV85kaGrrREZ_PRPb6Vz12plOwSm2U2csCpFuAD6zbt05OVjfdwgz2qT3uwfJF-S7CUWNZjBfMQaLaLVBWcbGah0l8Dx2zrrlx5kiwOD2VSyWcSc31mdV4rH5xdoWdvgunhis377qieY7SftwveqeGlE"]],
 
-					"1BS180/1BSshuv/1kickflip/" : ["BS Big Flip (BS Bigspin + kickflip)", [
+					"1BS180/1BSshuv/1kickflip/" : ["BS Big Flip", [
 						"ABLVV86UISv677yilHUH4xtlMtVJBq7iBwlfjJvDetVMI1Wq5oosTeOyIyOyYEtXtsxF6AI2ssBkpTlUui6WxYJaG-kV6Yl9lCi2hTvqF_AfCUkbgA47Jm8l7RJOem0hRAslux1wwIN1SgkMnTe1H13EjA8c", 
 						"ABLVV84TCAh84i4nlOXSzUQjzZbygYSi_oFb0h3aux6VN3EpkkKY_mYgZZ3CFsg8Q1z4j0oPvMTq5XHtyrd1eDd3j6MusXGsXWzMduo1hSuBmYoEC-sphUECySwGwSWoQqJOZIK2oJW1laF51A6_Dldfk4iA"]],
 
@@ -36,7 +36,7 @@ var dic_tricks = {	"" : ["La board ne fait aucun trick !", [
 						"",
 						"AP1GczN_nUc959HLatwYZihx9OaDCYwdnjKmQJDd9BdKMKxpVShZ6JjnEINJHQaon-GG8EaEERt7sY1HPbIX4KfXXl6Uw3lAeg0MVQcn1i-k9Adxc8XTXTNpcut5zXlJ3Q1IKK6S-3nFhE-50b-G_MFTbNEm"]],
 
-					"1BS180/1BSshuv/1heelflip/" : ["BS Big Heel (BS Bigspin + heelflip)", [
+					"1BS180/1BSshuv/1heelflip/" : ["BS Big Heel", [
 						"ABLVV87zZwd_VcsJOMcLlgUHNYfUj3TvzFS-BHlf_N8gV0JTCKrEtNXstUwobRXV4mMP0ynNsIlKSBEmXS7I9lsCCvDHKBAIAfgWCVfG9siwIh5N_v7L_ywlzZwOw464qe91pVffQcvGxplKClb-nNVHDxe4", 
 						"ABLVV870OQoogdqNRQRMwBeHwyF7urlfiq_B8sqkKbcTYVz4CqjbCKm5RxRfmEN_uPwxxerArDLhwrwAP2i1JtgMg5QMyYZeiwmTXwwj_tCXPnW_nKIP3jmSsk6_GbFuWOxQpBHzJIuehCk_gI_Zmrh4PqpX"]],
 
@@ -123,11 +123,11 @@ var dic_tricks = {	"" : ["La board ne fait aucun trick !", [
 						"ABLVV858DhJ6fUmyVOMvsJE6o4LWNqxOLUNdi4QUEWzvhnOFghbePa-uNRy4nFrmS9iAVSCSlTHWWk5SFeGs5Bq3AWl3qFC07DJCmmvn3qofwp-89GdtvMkwmkOK-aVu-jCGgFWnjCAAwvMaGYP9oedXDdLP",
 						"ABLVV84qTzpLKaiJSIYgCLMcIZHSU-21b0EBm--lTtVQGhXshPgtLt9ULQXksDkkYFGLF5MVfaILPbJVn0p1NDSOctSL5nci7xcCFqTdPCh1FmIZkrs0PALI98Kh28hTtLnb3I8MDDCmg1FKJJ4a9MA350lm"]],
 
-					"1FS180/2BSshuv/1kickflip/" : ["Tre Maker (FS 180 - Tre Flip", [
+					"1FS180/2BSshuv/1kickflip/" : ["Tre Maker", [
 						"ABLVV84MkSnWh0_WPOu44RQX3T099oPSOVqCE5FCOnfgtaZYfTaq2FdzhLmFyAoJGAoNz-w4ahO3dnWbAff32w2qe40RLi49lBGcNOutX1Y0G_ODGUq2Y-y85KGdPAqDscj87aHedTC-mKkNhlI1O6YpXyGX",
 						"ABLVV867wVUEjj_1eVxtRWrjSd-cZti7TwniPM8pg_8n30iYkBih7IFlGmZSjgn0ZGESmQVcctvYZwhEBg_HAwhWzsc6cYW3txnjp1jk8bc-rkkCEBuKmLS1GFnNdc1cMXFNUXS1W4HzTvOaymvtr2m2r_f8"]],
 
-					"1FS180/2BSshuv/1heelflip/" : ["Heelflip Tre Maker (FS 180 - Double BS shuv - Heelflip)", [
+					"1FS180/2BSshuv/1heelflip/" : ["Heelflip Tre Maker", [
 						"ABLVV8705Nss3fg1mhGvJIzwXCZ0a7-L9wlnyCGZJO3md8U0iYPfEmTF-bDULwMWsleyLiSdsnZWbOmcXKY687NJ8KlJPwkqFccdUC0L86rPK0LEPCo7kBwWWc15GPpl3NmJlgXQPGIlX1zwYsJ5ex1mPbAh",
 						""]],
 
@@ -135,11 +135,11 @@ var dic_tricks = {	"" : ["La board ne fait aucun trick !", [
 						"ABLVV85pcCRpdpkCVel_wkEyKt_Fw2_yGNoVxS3DZo-EaWWSOfvLg_gYjte5m1CEHetkFk0eEkcN_57wPAo-O1utsMa1tbBflM5XrtwCOjzflvyFnMJTzTyVBESlKaNKjkzOvh7xhU10VTrHH5WchslXVPg",
 						"ABLVV84Wr8YLzyN5HqpaHsHIRodoEVBqmYlU-iwSUUl5CH-dgGibAJihMhuM3DnL9EkmrlB3KeqP64vSGEJv0J2mx7FKLqYhIj_w2_BwlBg-d4jglHPU75nM8qy9ppMY24Br6gcyCqeD3BOhwNcwjqANF_o"]],
 
-					"1FS180/1FSshuv/1kickflip/" : ["FS Big Flip (FS Bigspin + kickflip)", [
+					"1FS180/1FSshuv/1kickflip/" : ["FS Big Flip", [
 						"ABLVV84ua8mSMwaF0dHkJdBNTAN9qr69TWTqR6tef0ZT4HO-NapjSu77c16ybulxGy7p0OSyZb1pRxCPFSQJAC9WTlmzhdW0EM23OkdJEXUD1CYXjGWD9kxDmkJdLqLDMKO2rhQLKquXD1hjpdAGPopuYnKU", 
 						"ABLVV87J3ySnYTz0QDOC3xrc1AoL4lLcM6hP6ngPlXNrdoRThew8LqK7dWLbdXDwgNyj1GFvXbKkkuMApfjRdtS9jNls1UHN6QR3H_z1_E2ge2NaR0pzcQNBdCJVU454iXtTPF4F4m7PVQoniIXcGHYRec_d"]],
 
-					"1FS180/1FSshuv/1heelflip/" : ["FS Big Heel (FS Bigspin + heelflip)", [
+					"1FS180/1FSshuv/1heelflip/" : ["FS Big Heel", [
 						"ABLVV86H2Bfs8gjxcxrWNpQ8rbrIYAr9JrZ6kQLyuWCwZy8YID_kIxE0uzUypMA4EuLGAdZzk7aWOtOTFO_oB0u6u0g0pzNry9leuGuhjEiY4xm0iZOVgFTVBL8k0kJop8ea-QBZPIYKM1TpYaHOqQ1r5Ag6",
 						"ABLVV86zu6oeLaxME9FrOzcJ5jDCbHvKT0rJDQoqELeQoFVTSZpcnh0V8LpSCmvbPZD-e0YMq94MZcL3EZbTl0vx0_rWY10XC2c2h8cJo2cqID7kRrDSzOouUjuZj3H7uUkBxLXzIdRZ6FcVCW_XpU3t38bI"]],
 
@@ -190,7 +190,7 @@ var dic_tricks = {	"" : ["La board ne fait aucun trick !", [
 						"AP1GczPsmwCdZsBp6yHzU0p2UMd3w6NvxhTTmXMdhisJu47DMHUe2v4FcPFcgqQSrxsAUqE6IzRmrdTeGqfwfU1rd7wIpn0PTbKTXo4Si2Z55NUK4x_sA5IbP6zlL4ZUL9UtxtEJJkJIKSLH-oMYQ3I0HPJE",
 						"AP1GczPy35YlklozRRUePFm7ebbJnVNM1a8-N6gRxYqDfFEZmEH6IVpQZL5Eu1Lpqj7xSM1qUETQCDVq5wcL5kgaKznu9ySh4Yhg30CwqUvsxFH_mdHS_Io8-OcVPw3-wi70gM16OkeDHCZ5_5Pdzo2mJTex"]],
 
-					"1BSshuv/1heelflip/" : ["Inward Heel (BS shuv + heel)", [
+					"1BSshuv/1heelflip/" : ["Inward Heel", [
 						"ABLVV87SdZiWM9GfTDpKLeNJmSy7BN1fhXaAmHtkJ89lmNW6lJVphTclvIR6CTbvN0SUV1RIM7xxJK6ij-ULE7uG85jWORHCpMnjehfEoCjqJtayxQ5jGOJixEAS7rp6IhG5zzntr3mARBxYHklJ9I666VDV",
 						"ABLVV87Kym5JaZRs7cQi1LZBC49a4J8cY-fBgp2prpPp2k_Xh3Ck5AALO_5TqQdtoeYKHjqlf4GLDDAMrBHEr0m2ycbDxmYVaYGAuaoFwqDIzPaf4F9kd5Bdvz7DW8-8BGQ0_TGivnb27uUgfQswmTcIkXey"]],
 
@@ -224,7 +224,7 @@ var dic_tricks = {	"" : ["La board ne fait aucun trick !", [
 						"ABLVV84djQTJvYPu6nCljiCxHvKqjQz2rLGhSwiEKbyNIXVj6NfJHH1uxJ21dJorh6oxiDJZ7W4ralFR-jBS-uZ_PpRnreJ8oS0WZIKIfZcvjgYiVtrir25l2n8dOpSI8aqKdYXn2Bilc8bZubyIEQanldM", 
 						"ABLVV84pa-5R_kzqoqAYj203Z8IZWLyWSqaL-2PHzC78u4tCROd_86RKN68lcutzLtbBFAJiubrHGYLczhuzwq36El-_Ibse7rJUN0_gm7rQis8_MF6E6U1H0Aen9lISG5LnmVDiv6P3rNIv1bG9KC7HNd8"]],
 
-					"1FSshuv/1kickflip/" : ["Hardflip (FS shuv + Heel)", [
+					"1FSshuv/1kickflip/" : ["Hardflip", [
 						"ABLVV84whTycWOP3ZJ4X8lzkSguTBppBB0UNiABPxuzf1WTKoBzocAqzTxaB_pGvbFmOqpQa5Lc1D8_bpZ__dk1PKvzkLlkNz7RSeB2mUW4XSdEhwRd-3IVtzqz7TET_RBAWbPyvvPWNz2kc_XQD0IDgpbKi",
 						"ABLVV85R3fCY85NgKrIQUdJD7cHp2rQB8FjjWLCXLclR2tmv2RQX-180d41V1TshiJB-g9JkGgPfuOIjJNpofWTKmjv_636IA1icr9Lk-kdLdV1IB4bSH8_h_oPNcUsttKTCq_kdNvwccG5Gcm0fUIEh9x22"]],
 
@@ -253,7 +253,7 @@ var dic_tricks = {	"" : ["La board ne fait aucun trick !", [
 						"AP1GczMi5Y2mXyrecrDgWhLbuvi14JVcSxMcCVjrxcyHBSwlIMgzk98BbKgsWz7Kncv2SAcXgX3sPeLGvk8dL25ffo_ufr6At2uXuA-7rxUhqpTb3gNrRqbo0KBUq8P76c7UK1q08dOwAAPce5PyTv9qp372",
 						""]],
 
-					"2FSshuv/1heelflip/" : ["Lazer flip (360 FS shuv + heelflip", [
+					"2FSshuv/1heelflip/" : ["Lazer flip", [
 						"ABLVV87gSN7JKD3agQL6fVmFaC0tC8d8BK45s4WEwumdalC660WExsxSEYLeU4vkwCzJNYmy8O2oQHUkBqsorEIfaPPvl97sqYn7c_u_cYAv_bVPdQ3qJ_w-GK3JNSsKJxDZ7gg0oroeJlgzWh0MPw5mNIUK",
 						"ABLVV84OC98SJT_QjqBaYyxVuHPzT2TLoAclVcP1QuiNcGvGuGtDkRnbqMd_XzZW-LbbtqxrQJ9rMOK-UBtpwuomDXQiws_xI6ZydMoIWQVxbc_KngHhjJcg84azvxcRIKN7SosXx3IZqGExzX7Ib5kPAACB"]],
 					
