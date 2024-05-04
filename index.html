@@ -13,9 +13,9 @@
 				<option value="fakie"> Stance : Fakie </option>
 		</select>
 
-		<div class="aligner_horizontalement" onchange="calculer()">			
+		<div class="aligner_horizontalement">			
 
-			<select id="choix_180" >
+			<select id="choix_180" onchange="calculer()">
 				<option value=""> (nothing) </option>
 				<option value="1BS180/"> BS 180 </option>
 				<option value="2BS180/"> BS 360 </option>
@@ -23,7 +23,7 @@
 				<option value="2FS180/"> FS 360 </option>
 			</select>
 
-			<select id="choix_shuv">
+			<select id="choix_shuv" onchange="calculer()">
 				<option value=""> (nothing) </option>
 				<option value="1BSshuv/"> BS shuv 180 </option>
 				<option value="2BSshuv/"> BS shuv 360 </option>
@@ -31,13 +31,15 @@
 				<option value="2FSshuv/"> FS shuv 360 </option>
 			</select>
 
-			<select id="choix_flip">
+			<select id="choix_flip" onchange="calculer()">
 				<option value=""> (nothing) </option>
 				<option value="1kickflip/"> 1 kickflip </option>
 				<option value="2kickflip/"> 2 kickflip </option>
 				<option value="1heelflip/"> 1 heelflip </option>
 				<option value="2heelflip/"> 2 heelflip </option>
 			</select>
+
+			<button id="reset" onclick="reset()">Reset</button>
 		</div>
 
 		<p><em style="font-size: 20px;">=</em></p>
@@ -67,6 +69,7 @@
 	const selecteur_180 = document.getElementById("choix_180");
 	const selecteur_shuv = document.getElementById("choix_shuv");
 	const selecteur_flip = document.getElementById("choix_flip");
+	const selecteur_stance = document.getElementById("choix_stance");
 
 	const nom_trick_ecran = document.getElementById("nom_trick_ecran");
 	const trick_image = document.getElementById("trick_image");
@@ -388,6 +391,33 @@
         	montrer_message_erreur("! " + trick_squelette + " : This trick is not defined yet !", "coral");
    	 	}
 	}
+
+
+
+
+
+
+	function reset() {
+
+		selecteur_stance.value = "normal"
+		selecteur_180.value = ""
+		selecteur_shuv.value = ""
+		selecteur_flip.value = ""
+		
+		calculer()
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 
 	// Pour créer l'ensemble des labels des tricks //
 
