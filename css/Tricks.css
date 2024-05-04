@@ -127,11 +127,25 @@ em {
 
 .clickable-label:hover {
     transform: scale(1.1); /* Agrandit le label de 10% */
+    text-decoration: underline;
+}
+
+#container {
+	display: flex;
 }
 
 /* Style pour le conteneur principal */
-#labels-container {
-    display: flex;
+#main-tricks-container {
+	display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* Style pour le conteneur principal */
+#other-tricks-container {
+	display: flex;
+	flex: 1;
     flex-direction: column;
     text-align: left;
 
