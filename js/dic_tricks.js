@@ -7,14 +7,8 @@ Le dictionnaire est présenté de la façon suivante :
 */
 
 
-var dic_tricks = {	"" : ["No board movement !", [
+const dic_main_tricks = {	"" : ["No board movement !", [
 						"AP1GczONXTD5eCNN0j0r37uB9YfyoXHTCQUqq8nn-GiTejxsAII9pbtB_62gz7fjG0AgQ1X5c9-ynB0wnupoJpc4qoiHJBrUreBe-MtJes4pXv_tonGWZKf-XvWu2pyNz2cnwouYCtyPNfLyXAlaKD4pS5J0"]], 
-
-					"ollie" : ["Ollie", [
-						"ABLVV84FeWhTS0tR4uzJA2g2gqae0bKOAbVvHcNiMyHUdXlP9sLeVvi-Z57EAAfsXCHmlLB9hgrGT863qcdIJWTsws4EngLZ44Z2I1Xdcsi_Y80t0AHls1t_QtG7baLGpxfErOMxcNxqGfRISFmjOCkU9Jw", 
-						"ABLVV85SPjQVkL5GOCq5yaELQj7Iu_RSFi7oBezIl477kaaBE4xhncGTVsTe1FKMxXOouvpbV0lo2C8sOHvA3_GyY0bFRng1Jm13xXOtlTnGsYaSKmjtnC2KbP-aqxtZXzhY7vTU55CW6NDRzXxUUt1W44M"]],
-
-
 
 					"1BS180/" : ["Backside 180", [
 						"ABLVV84aLansXVeVl44zX9ykJS47kyXJD8U0l0lNPd6dTP02j1Qc-uQUemKbujKmrq3SxjR-HEmQLShzmrmWPOW2GgfMVvbZ7YtM5m__IrAZ0ep7rP3rIb-Sx_dw1HZ21NjjMXOMl8N2ZOvFS_nmQTnjtnc", 
@@ -64,7 +58,7 @@ var dic_tricks = {	"" : ["No board movement !", [
 						"ABLVV84RCkq6lpqW9KfJF1OijoZwsaak6Ml7YbqnIvrPYavrjWBvgmgWFM5G5Q_Gy_P-W21gA0R-dTDpmFShxUHYZI3V7iOCK9f3GQuuCUCWWTZXTG1yzfO2nrHjbNIXSI2FyFCOeWUce3iGOlM2457W5bU", 
 						"ABLVV84IdPGIHLAXK0GhSEdShWYmvAQp1H6fvX9wiziGhMUV-31gcuoF53gfXqrq7cKgNTIDDtexsuddqN4DwfMF04PV51xxv9OxRT7pPgoG8kFyzCftgYBYLyQY1ixJYKow3BfKg0bdVajYBqjtA3AnntE"]],
 
-					"1BS180/2kickflip/" : ["Backside double Flip", [
+					"1BS180/2kickflip/" : ["Backside Double Flip", [
 						"AP1GczMFoe990zk173KQH3oe9JU4_kpkZNMxvQYI8oBruzm0BzREpCzTbtWcIG55WHhUO77lRcFuXzIzXz7Lp-3Rn7uPlYKHBrZ5wZfqYkqBp5yT9SiEUS88jALbOLya8WhkxHiLQ4mtuxoxlOL-Tu3U1yQK",
 						"AP1GczOak90kHEtug11NGnii0UxSjDYzxeyq2XoOYglwWz5dPu_oTVHhwaaDqOpRZ292wmkJTACTNdvVyTmnel7_RoySlHvoUnYvn4-sWVXqWyVxFYXeNFBmJNwiL8ml1rGq_Fq7LQzkzIr7_OA44X_vsBSQ"]],
 
@@ -143,7 +137,7 @@ var dic_tricks = {	"" : ["No board movement !", [
 						"ABLVV86H2Bfs8gjxcxrWNpQ8rbrIYAr9JrZ6kQLyuWCwZy8YID_kIxE0uzUypMA4EuLGAdZzk7aWOtOTFO_oB0u6u0g0pzNry9leuGuhjEiY4xm0iZOVgFTVBL8k0kJop8ea-QBZPIYKM1TpYaHOqQ1r5Ag6",
 						"ABLVV86zu6oeLaxME9FrOzcJ5jDCbHvKT0rJDQoqELeQoFVTSZpcnh0V8LpSCmvbPZD-e0YMq94MZcL3EZbTl0vx0_rWY10XC2c2h8cJo2cqID7kRrDSzOouUjuZj3H7uUkBxLXzIdRZ6FcVCW_XpU3t38bI"]],
 
-					"1FS180/1kickflip/" : ["Frontside 180 flip", [
+					"1FS180/1kickflip/" : ["Frontside 180 Flip", [
 						"ABLVV84zesR68Dmh2D9EoNyyeDWVZHizn7igjRcA1QaSlHDGQw7N5kkeEmKnTAXlFsBkyn5FiSD44MGuSevTzPPkzBhby2iMif9t0gt7oTaG-oAkS2mlZWfTiUwcvwT2LtyiLo6VtqVLTygO3u4TV-yD_lQ", 
 						"ABLVV87wwVLKdr0Vr4pMliENcO0iz2UlWwvOeXQUrSTj4ZroJw_WCll49wMHZ6QoNnpFT-gsOhdjpmMNUY1E46-JXmDOGQqAGEEg1l22ax3ebCi_pXaaCD1rr6o96YA0ANM3YkMZwSU5XwU13aCtDr2KJDk"]],
 
@@ -160,7 +154,7 @@ var dic_tricks = {	"" : ["No board movement !", [
 						"ABLVV87P8qPJPxGn-tizw8_pxPYmVuhszG7oYYbbqnKlexQbDadji0-5p736CP8YjlUpxMGtFOSXiOv8sBJYqUYArL17IHjH1zcwvx-wx7oaHWdB5GbYKppnCFHkR0Bg02AzqxWhrOX1zo_wS-rFDnkLgZHP",
 						"ABLVV86zBhqoEmSKaeOoB--z2UXUqtbQuW9K2-cD3EF32KYS1TjKhYLFNCAI3Nt-KtQtMa_uf28KtLGTzlyy-ALERcONwYao5A4CMySe4YsSe-61EGdVpPkCohk7dDw4Ot1eXcb1NkMgnd_y0Q4REdsZFilT"]],
 
-					"2FS180/1FSshuv/" : ["FS Gazelle spin", [
+					"2FS180/1FSshuv/" : ["FS Gazelle Spin", [
 						"",
 						"AP1GczNoIgWUHfc8-Ys42rws7am7Cu7uepMb4Dt8rAExBeKmhhv00YZMKcBdw46xxBFKdYdLOQtdWfUkGp6Gya8DmcYD0Zt0iPMKUUASEs5aC70obqa0hSJ8yzIi1i9zNv2UzZW-PS28do7DK3L30GgTeJP6"]],
 
@@ -178,7 +172,7 @@ var dic_tricks = {	"" : ["No board movement !", [
 
 
 
-					"1BSshuv/" : ["Backside pop-shuvit", [
+					"1BSshuv/" : ["Backside Pop-shuvit", [
 						"ABLVV86zhBLqJBA7Xway6Tv5w63QalvTUtf3wIZBKAFotvg2CZ5DC4tjvXwfjrf3UDEpHfULeEkyJ0RiCSkl3KJ_1oNv7RnMb2xQJF8OH0tsdPxybEDe0taUDVbgvDUzekTHHezysUd78UMtM78noN9wLvw", 
 						"ABLVV84V1HTGyszTdcmWhwXwVwM9e86XNwAK039GIuS1aZQLF7qckg1u7VhKpMXaMcCya7DXm9wcDWyNvXDqg_2XlvDJTSdR_KNGtMee6ui0c_ZPVHVfCAnVLpM_rrvVwGUFNQ0GVI3hE_VPOs3EdWq6Hx8"]],
 
@@ -199,7 +193,7 @@ var dic_tricks = {	"" : ["No board movement !", [
 						""]],
 
 					
-					"2BSshuv/" : ["360 Backside pop-shuvit", [
+					"2BSshuv/" : ["360 Backside Pop-shuvit", [
 						"ABLVV864LmgI8oafOfAl6ad4iIGSPMeD9UJqLVHkg5Sjmy6MT-kHjM3-qVvf_r6AO8fSg65Bud1QO--rKILTjOJRNhUP5kqdT1Jyj0cYVB512LIny3SOT5CKYsfkniq4eeENVzZbDCNJntzz51C4OXsgJZc",
 						"ABLVV86KyZHkjqTa6g6Zltg6O4FNJ-nw14DYdXScbzKhVsZ20gikgxuGtrpZs_c6CNK7Y8uxsF110K-ubN-Wef0vtRAY6QsNF0pV20iwJElF85RnYxe8frO2gjcsHn2GdwrbZderIwDWfavIi58-C8NsH98"]],
 
@@ -220,7 +214,7 @@ var dic_tricks = {	"" : ["No board movement !", [
 						""]],
 
 
-					"1FSshuv/" : ["Frontside pop-shuvit", [
+					"1FSshuv/" : ["Frontside Pop-shuvit", [
 						"ABLVV84djQTJvYPu6nCljiCxHvKqjQz2rLGhSwiEKbyNIXVj6NfJHH1uxJ21dJorh6oxiDJZ7W4ralFR-jBS-uZ_PpRnreJ8oS0WZIKIfZcvjgYiVtrir25l2n8dOpSI8aqKdYXn2Bilc8bZubyIEQanldM", 
 						"ABLVV84pa-5R_kzqoqAYj203Z8IZWLyWSqaL-2PHzC78u4tCROd_86RKN68lcutzLtbBFAJiubrHGYLczhuzwq36El-_Ibse7rJUN0_gm7rQis8_MF6E6U1H0Aen9lISG5LnmVDiv6P3rNIv1bG9KC7HNd8"]],
 
@@ -241,7 +235,7 @@ var dic_tricks = {	"" : ["No board movement !", [
 						"AP1GczOsUeBaA-SnNGg2W7xNs6efhH5v2HIK_xo3MfwdUhTy_Q1fiJ85gzzaNl8PnQP6yyZTuyJgQwYHVxhOwKD0XxdJuKLQ_I36K9Q_RTTKwpC5sE3Zd6Q3z-ZXUfqgNKNssXRt3XfRm1eRn2u2olIFL-MQ"]],
 
 
-					"2FSshuv/" : ["360 Frontside pop-shuvit", [
+					"2FSshuv/" : ["360 Frontside Pop-shuvit", [
 						"ABLVV85NrQX94CE_2pSEEmMR1PdoKVx9y3g7mUtZoRK5A8HLkrky2Kq6i0U0k21sd8rtriuq0IL5rKqsb7xQLKPXB_9MGm6oiqWriqG28CfzE-jNQwaoUnxiTeZT003vPcKiJ2Uy85R7HNcNNFjK6vxn4go",
 						"ABLVV86w7QykYQiPhB3tuXDS8uwWifUiyepChq-DgKNnd_OtabqZBgco6Pg4Um1d_EYYonpR0PszdnKrpYFHG525of-PDq4s50g7P9ZVsL-ux7kZJV_xHIeaGDY7Jvih-3MV_CccF4POwdflnUVib-K0J-8"]],
 
@@ -253,7 +247,7 @@ var dic_tricks = {	"" : ["No board movement !", [
 						"AP1GczMi5Y2mXyrecrDgWhLbuvi14JVcSxMcCVjrxcyHBSwlIMgzk98BbKgsWz7Kncv2SAcXgX3sPeLGvk8dL25ffo_ufr6At2uXuA-7rxUhqpTb3gNrRqbo0KBUq8P76c7UK1q08dOwAAPce5PyTv9qp372",
 						""]],
 
-					"2FSshuv/1heelflip/" : ["Lazer flip", [
+					"2FSshuv/1heelflip/" : ["Lazer Flip", [
 						"ABLVV87gSN7JKD3agQL6fVmFaC0tC8d8BK45s4WEwumdalC660WExsxSEYLeU4vkwCzJNYmy8O2oQHUkBqsorEIfaPPvl97sqYn7c_u_cYAv_bVPdQ3qJ_w-GK3JNSsKJxDZ7gg0oroeJlgzWh0MPw5mNIUK",
 						"ABLVV84OC98SJT_QjqBaYyxVuHPzT2TLoAclVcP1QuiNcGvGuGtDkRnbqMd_XzZW-LbbtqxrQJ9rMOK-UBtpwuomDXQiws_xI6ZydMoIWQVxbc_KngHhjJcg84azvxcRIKN7SosXx3IZqGExzX7Ib5kPAACB"]],
 					
@@ -270,7 +264,7 @@ var dic_tricks = {	"" : ["No board movement !", [
 						"ABLVV85LhEUPUeDeowL45wHVRKjmmWAYDCddvq8OLHYC6uFMLnDGx__xuqrXXR1acNkKUxJKj3t8LbSrwEkXTjszsz3txMGxNdeybx4nOiAJLw9wUOL6FewNYZ1Hume44kobMLem7NMSCLQzr8gOnuWVWGXJ",
 						"ABLVV85xsPai0AoAv4LzTjAl4N18ApvCq7K82HcniLYLqOCfLuEOUPxYX_6hmmPgUnDDwW24oUxgtV_-3NPd3iWfUPM05000yR0huhcXsC-PmDZiUhAQ-I1FjGEqFsp_2Th-YlkbglIWuwSgWBad3Ij-DpxN"]],
 
-					"1heelflip/" : ["heelflip", [
+					"1heelflip/" : ["Heelflip", [
 						"ABLVV84pUuWLIb5plgd4KMX2dQh08JW4_FCD3NSfNQB-ZJdtXi3nnL3b8f81x7Qzgy-c1kLwvN8B42xvL5GEByBnYTMFnf717I8UXiI7apeyvoK1mBeaE5SW2lA6AgHlxozLH1JmsNQjkf29T50LuIRMOgU", 
 						"ABLVV84wfm4YO1-F0Y_Sc54ld3Xu74ndOsssbR0tNxqHqdilFZCkafpucP5aJWW4bEAqVgiItQt0poXpsZn1Yj13pADPn_oAxJJj_g34je1cvUDoU8LbhVS74pNsiwfoIj1JNSC2JIgG1dFToJXlb5d7F2g"]],
 
@@ -279,6 +273,14 @@ var dic_tricks = {	"" : ["No board movement !", [
 						"ABLVV867BaOKHy2XCADqTnVAO8T9FwbxJsFRWLrZPO76J2nWo7hvaNiR8cy_pWClzooAZRO3ogzYSj9SdIf4QxQP0XpQxqL6MM7fJEt5CcARZFxopFNqCzkOkGMx006cJB3VcSbiKbTjB24BdJGuAouAGExc"]]
 
    				};
+
+// Pour l'instant, important que key === valeur (à la majuscule près)
+
+const dic_other_tricks = {"Ollie" : ["Ollie", [
+						"ABLVV84FeWhTS0tR4uzJA2g2gqae0bKOAbVvHcNiMyHUdXlP9sLeVvi-Z57EAAfsXCHmlLB9hgrGT863qcdIJWTsws4EngLZ44Z2I1Xdcsi_Y80t0AHls1t_QtG7baLGpxfErOMxcNxqGfRISFmjOCkU9Jw", 
+						"ABLVV85SPjQVkL5GOCq5yaELQj7Iu_RSFi7oBezIl477kaaBE4xhncGTVsTe1FKMxXOouvpbV0lo2C8sOHvA3_GyY0bFRng1Jm13xXOtlTnGsYaSKmjtnC2KbP-aqxtZXzhY7vTU55CW6NDRzXxUUt1W44M"]],
+
+}
 
 
 
