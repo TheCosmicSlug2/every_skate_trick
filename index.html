@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/Tricks.css">
+	<link rel="icon" href="https://lh3.googleusercontent.com/pw/AP1GczOaV8ZpLvGAgflJbCChXtFRqsFK3ODLTrHuvTzsD6Gx0P_DeTGsfFkbfQeq6KO9Pm4e-ergcyGHnx1nnL7UDZv650M0-U2M9E1sP8G3hXnL0Zrw8T-0RncFrbyz0amAYhSzKrZv_Ba-iaDDAhOZj20j" type="image/x-icon">
+
 </head>
 
 <body>
@@ -39,7 +41,7 @@
 				<option value="2heelflip/"> 2 heelflip </option>
 			</select>
 
-			<button id="reset" onclick="reset()">Reset</button>
+			<button id="reset" onclick="reset_menus()">Reset</button>
 		</div>
 
 		<p><em style="font-size: 20px;">=</em></p>
@@ -52,11 +54,23 @@
 
 		<p id="message_erreur"></p>
 
-		<div id="labels-container"></div>
+		<div id="container">
+			<div id="main-tricks-container">
+				<h3>Main flat tricks : </h>
+			</div>
+
+			<div id="other-tricks-container">
+				<h3>Other tricks : </h3>
+			</div>
+		</div>
+
+
 
 	</section>
 
 </body>
+
+<footer style="text-align: center;">Made by @multimes (yt) / @solaluble (ig)</footer>
 
 
 <script src="js/dic_tricks.js"></script>
@@ -91,8 +105,8 @@
 
 	// Initialiser l'image de base 
 
-	var titre_pas_de_trick = dic_tricks[""][0]; // Premier élément du dictionnaire = bulldog
-	var chemin_acces_bulldog = "https://lh3.googleusercontent.com/pw/" + dic_tricks[""][1][0];
+	var titre_pas_de_trick = dic_main_tricks[""][0]; // Premier élément du dictionnaire = bulldog
+	var chemin_acces_bulldog = "https://lh3.googleusercontent.com/pw/" + dic_main_tricks[""][1][0];
 
 	trick_image.title = titre_pas_de_trick;
 	trick_image.src = chemin_acces_bulldog;
@@ -101,6 +115,29 @@
 	// On initialise la couleur des cases des menus (toutes les bases sont NORMALEMENT possibles..., donc on peint tout en vert) 
 
 	changer_couleur_tous_les_menus(liste_morceaux_base);
+
+
+	// ---------- Fonction pour reset les valeurs des menus déroulants ------------------//
+
+	function reset_menus(a = true, b = true, c = true, d = true) {
+
+		if (a) {
+			selecteur_stance.value = "normal"
+		}
+		if (b) {
+			selecteur_180.value = ""
+		}
+		if (c) {
+			selecteur_shuv.value = ""
+		}
+		if (d) {
+			selecteur_flip.value = ""
+		}
+		
+		calculer()
+	}
+
+	// ---------------------------------------------------------------------------------- //
 
 
 
@@ -201,7 +238,7 @@
 		}
 
 		else if (p_liste_bases_squelette.length === 1) { // Si le squelette possède 1 valeur
-			for (key of Object.keys(dic_tricks)) { // On teste pour chaque élément du dictionnaire
+			for (key of Object.keys(dic_main_tricks)) { // On teste pour chaque élément du dictionnaire
 				trick_proche = key;
 
 				if (trick_proche.includes(p_liste_bases_squelette[0])){ // Si il est pas dans la liste des tricks proches
@@ -211,7 +248,7 @@
 		} 
 
 		else if (p_liste_bases_squelette.length === 2) { // idem pour une longueur de 2
-			for (key of Object.keys(dic_tricks)) {
+			for (key of Object.keys(dic_main_tricks)) {
 				trick_proche = key;
 
 				if (trick_proche.includes(p_liste_bases_squelette[0]) && trick_proche.includes(p_liste_bases_squelette[1])) {
@@ -309,7 +346,7 @@
 	function obtenir_nom_trick(trick_squelette) { // On trouve le nom du trick qui sera affiché à l'écran
 
     	const stance = get_stance();
-    	const trick_data = dic_tricks[trick_squelette];
+    	const trick_data = dic_main_tricks[trick_squelette];
     	if (stance === "normal") {
         	return trick_data[0];
     	} else {
@@ -330,7 +367,7 @@
 
 	function obtenir_ID_trick(trick_squelette) { // On trouve l'ID du gif dans le dictionnaire
 	    const stance = get_stance();
-	    const trick_data = dic_tricks[trick_squelette];
+	    const trick_data = dic_main_tricks[trick_squelette];
 	    let ID;
 	    if (stance == "normal") {
 	        ID = trick_data[1][0];
@@ -397,41 +434,31 @@
 
 
 
-	function reset() {
+	// -------------- Fonctions qui prennent en charge le clic sur des labels ------------------------ //
 
-		selecteur_stance.value = "normal"
-		selecteur_180.value = ""
-		selecteur_shuv.value = ""
-		selecteur_flip.value = ""
-		
-		calculer()
+
+
+	// Créer la liste des "main tricks" //
+
+	var liste_main_tricks = [];
+	for (var key in dic_main_tricks) {
+	    liste_main_tricks.push(dic_main_tricks[key][0]);
 	}
 
+	// Créer la liste des "other tricks" //
 
-
-
-
-
-
-
-
-
-
-
-
-	// Pour créer l'ensemble des labels des tricks //
-
-	var liste_tricks = [];
-	for (var key in dic_tricks) {
-	    liste_tricks.push(dic_tricks[key][0]);
+	var liste_other_tricks = [];
+	for (var key in dic_other_tricks) {
+	    liste_other_tricks.push(dic_other_tricks[key][0]);
 	}
 
+	// -------------- Faire apparaître main_tricks labels ---------------- //
 
-    // Récupérer le conteneur des labels
-    var labelsContainer = document.getElementById('labels-container');
+    // Récupérer le "conteneur des labels"
+    var MainTricksContainer = document.getElementById('main-tricks-container');
 
     // Parcourir la liste et créer les labels correspondants
-    liste_tricks.forEach(function(element) {
+    liste_main_tricks.forEach(function(element) {
         var label = document.createElement('label');
         label.textContent = element;
         label.className = 'clickable-label';
@@ -445,18 +472,50 @@
                 behavior: 'smooth' // Optionnel pour un défilement fluide
             });
 
-            traiter_clic_sur_label(element)
+            traiter_clic_sur_main_trick(element)
 
         });
 
         // Ajouter le label au conteneur
-        labelsContainer.appendChild(label);
+        MainTricksContainer.appendChild(label);
     });
 
+    // --------------------------------------------------------------------- //
 
 
-    function traiter_clic_sur_label(element) {
-    	trick_squelette = trouver_Cle_Liste_Cle_ParValeur(dic_tricks, element)
+    // ---------------- Faire apparaître other_tricks labels --------------- //
+
+    // Récupérer le "conteneur des labels"
+    var OtherTricksContainer = document.getElementById('other-tricks-container');
+
+    // Parcourir la liste et créer les labels correspondants
+    liste_other_tricks.forEach(function(element) {
+        var label = document.createElement('label');
+        label.textContent = element;
+        label.className = 'clickable-label';
+
+        // Ajouter un événement de clic à chaque label
+        label.addEventListener('click', function() {
+            console.log('Vous avez cliqué sur ' + element);
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Optionnel pour un défilement fluide
+            });
+
+            traiter_clic_sur_other_trick(element)
+
+        });
+
+        // Ajouter le label au conteneur
+        OtherTricksContainer.appendChild(label);
+    });
+
+    // ---------------------------------------------------------------------- //
+
+
+    function traiter_clic_sur_main_trick(element) {
+    	trick_squelette = trouver_Cle_Liste_Cle_ParValeur(dic_main_tricks, element)
         console.log(trick_squelette)
 
         var liste_bases_squelette = trick_squelette.match(/[^\/]+\/?/g);
@@ -556,6 +615,35 @@
 		idx = liste_morceaux_base.indexOf(nom);
 
 		return idx
+
+	}
+
+
+
+	function traiter_clic_sur_other_trick(element) {
+
+		reset_menus(a = false)
+
+		
+		stance = selecteur_stance.value
+		if (stance === "normal") {
+			trick_name = dic_other_tricks[element][0]
+			ID = dic_other_tricks[element][1][0]
+		}
+		if (stance === "fakie") {
+			trick_name = "fakie " + dic_other_tricks[element][0]
+			ID = dic_other_tricks[element][1][1]
+		}
+
+		chemin_acces = "https://lh3.googleusercontent.com/pw/" + ID 
+
+		trick_image.src = chemin_acces;
+	    trick_image.title = trick_name;
+
+	    nom_trick_ecran.innerHTML = "<em style='font-size: 20px'>" + trick_name + '</em>';
+
+
+		// Trouver l'url
 
 	}
 
