@@ -10,14 +10,14 @@
 <body>
 	<section class="jeu">
 
-		<select id="choix_stance" onchange="calculer()">
+		<select id="choix-stance" onchange="calculer()">
 				<option value="normal"> Stance : Normal </option>
 				<option value="fakie"> Stance : Fakie </option>
 		</select>
 
-		<div class="aligner_horizontalement">			
+		<div class="aligner-horizontalement">			
 
-			<select id="choix_180" onchange="calculer()">
+			<select id="choix-180" onchange="calculer()">
 				<option value=""> (nothing) </option>
 				<option value="1BS180/"> BS 180 </option>
 				<option value="2BS180/"> BS 360 </option>
@@ -25,7 +25,7 @@
 				<option value="2FS180/"> FS 360 </option>
 			</select>
 
-			<select id="choix_shuv" onchange="calculer()">
+			<select id="choix-shuv" onchange="calculer()">
 				<option value=""> (nothing) </option>
 				<option value="1BSshuv/"> BS shuv 180 </option>
 				<option value="2BSshuv/"> BS shuv 360 </option>
@@ -33,7 +33,7 @@
 				<option value="2FSshuv/"> FS shuv 360 </option>
 			</select>
 
-			<select id="choix_flip" onchange="calculer()">
+			<select id="choix-flip" onchange="calculer()">
 				<option value=""> (nothing) </option>
 				<option value="1kickflip/"> 1 kickflip </option>
 				<option value="2kickflip/"> 2 kickflip </option>
@@ -46,22 +46,35 @@
 
 		<p><em style="font-size: 20px;">=</em></p>
 
-		<p id="nom_trick_ecran">
+		<p id="nom-trick-ecran">
 			<em style="font-size: 20px;"> No board movement !</em>
 		</p>
 
-		<img id="trick_image" height="300px" >
+		<img id="trick-image" height="300px" >
 
-		<p id="message_erreur"></p>
+		<p id="message-erreur"></p>
+
+		<p class="blue">"exemple" : Only available in "Normal" stance</p>
+
+		<p class="green">"exemple" : Only available in "fakie" stance</p>
+
+		<p>"exemple" : Available in both stances</p>
+
+		
 
 		<div id="container">
+
 			<div id="main-tricks-container">
-				<h3>Main flat tricks : </h>
+				<h3>Main flat tricks : </h3>
 			</div>
 
 			<div id="other-tricks-container">
 				<h3>Other tricks : </h3>
 			</div>
+		</div>
+
+		<div id="never-done">
+			<h3>Never done before : </h3>
 		</div>
 
 
@@ -70,7 +83,7 @@
 
 </body>
 
-<footer style="text-align: center;">Made by @multimes (yt) / @solaluble (ig)</footer>
+<footer style="text-align: center; color: black;">Made by @multimes (yt) / @solaluble (ig)</footer>
 
 
 <script src="js/dic_tricks.js"></script>
@@ -80,14 +93,17 @@
 
 	// on "get" l'ID du titre de l'image, du message d'erreur et de l'image sur la page  
 
-	const selecteur_180 = document.getElementById("choix_180");
-	const selecteur_shuv = document.getElementById("choix_shuv");
-	const selecteur_flip = document.getElementById("choix_flip");
-	const selecteur_stance = document.getElementById("choix_stance");
+	const selecteur_180 = document.getElementById("choix-180");
+	const selecteur_shuv = document.getElementById("choix-shuv");
+	const selecteur_flip = document.getElementById("choix-flip");
+	const selecteur_stance = document.getElementById("choix-stance");
 
-	const nom_trick_ecran = document.getElementById("nom_trick_ecran");
-	const trick_image = document.getElementById("trick_image");
-	const message_erreur = document.getElementById("message_erreur");
+	const nom_trick_ecran = document.getElementById("nom-trick-ecran");
+	const trick_image = document.getElementById("trick-image")
+	const message_erreur = document.getElementById("message-erreur");
+	const NeverDone = document.getElementById('never-done');
+	const MainTricksContainer = document.getElementById('main-tricks-container');
+	const OtherTricksContainer = document.getElementById('other-tricks-container');
 
 
 	// On initialise quelques constantes de tailles, de couleur... pour les widgets
@@ -97,8 +113,8 @@
 
 	// Définir le contenu des menus pour que le programme puisse les reconnaitre
 
-	var liste_menus = ["choix_180", "choix_shuv", "choix_flip"];
-	var liste_valeurs_menus = ["BS 180", "BS 360", "FS 180", "FS 360", "BS shuv 180", "BS shuv 360", "FS shuv 180", "FS shuv 360", "1 kickflip", "2 kickflip", "1 heelflip", "2 heelflip"]
+	var liste_menus = ["choix-180", "choix-shuv", "choix-flip"];
+	var liste_valeurs_menus = ["BS 180", "BS 360", "FS 180", "FS 360", "BS shuv 180", "BS shuv 360", "FS shuv 180", "FS shuv 360", "1 kickflip", "2 kickflip", "1 heelflip", "2 heelflip"];
 	var liste_morceaux_base = ["1BS180/", "2BS180/","1FS180/", "2FS180/",  "1BSshuv/", "2BSshuv/", "1FSshuv/", "2FSshuv/", "1kickflip/", 
 				"2kickflip/", "1heelflip/", "2heelflip/"];
 
@@ -122,19 +138,19 @@
 	function reset_menus(a = true, b = true, c = true, d = true) {
 
 		if (a) {
-			selecteur_stance.value = "normal"
+			selecteur_stance.value = "normal";
 		}
 		if (b) {
-			selecteur_180.value = ""
+			selecteur_180.value = "";
 		}
 		if (c) {
-			selecteur_shuv.value = ""
+			selecteur_shuv.value = "";
 		}
 		if (d) {
-			selecteur_flip.value = ""
+			selecteur_flip.value = "";
 		}
 		
-		calculer()
+		calculer();
 	}
 
 	// ---------------------------------------------------------------------------------- //
@@ -274,7 +290,7 @@
 	// Fonction qu'on appelle pour récupérer la stance (uniquement "normal" ou "fakie" => Pas de "switch" ou "nollie") 
 
 	function get_stance() {
-		const selecteur_stance = document.getElementById("choix_stance");
+		
 		const get_stance = selecteur_stance[selecteur_stance.selectedIndex];
 		stance = get_stance.value;
 
@@ -307,20 +323,20 @@
 
 		// On colorie la première case de chaque menu (  "(rien)"  ) en jaune (pour le style)
 		var premiere_option = selecteur_menu.querySelector("option:first-child")
-		premiere_option.classList.add("case_jaune");
+		premiere_option.classList.add("case-jaune");
 
 		selecteur_menu.querySelectorAll("option:not(:first-child)").forEach(option => {
 
 			const nom_option = option.value;
 
 			if (liste_cases_possibles.includes(nom_option)) { // Si cette case (donc morceau de base) apparait dans la liste des morceaux de base 
-				option.classList.remove("case_rouge");
-				option.classList.add("case_verte"); // On la peint en vert 
+				option.classList.remove("case-rouge");
+				option.classList.add("case-verte"); // On la peint en vert 
 				console.log("vert ajouté");
 
 			} else {
-				option.classList.remove("case_verte");
-				option.classList.add('case_rouge'); // On la peint en rouge 
+				option.classList.remove("case-verte");
+				option.classList.add('case-rouge'); // On la peint en rouge 
 				console.log("rouge ajouté");
 			}
 		})
@@ -374,8 +390,8 @@
 	    } else {
 	        ID = trick_data[1][1];
 	    }
-	    if (ID == "") {
-	        const message = stance == "normal" ? "=> The trick is only in fakie stance" : "=> The trick is only in normal stance";
+	    if (ID == "" || ID == "none") {
+	        const message = stance == "normal" ? "=> The trick is only available in fakie stance" : "=> The trick is only available in normal stance";
 	        montrer_message_erreur(message, "yellow");
 	    }
 	    return ID;
@@ -440,39 +456,46 @@
 
 	// Créer la liste des "main tricks" //
 
-	var liste_main_tricks = [];
-	for (var key in dic_main_tricks) {
-	    liste_main_tricks.push(dic_main_tricks[key][0]);
-	}
+	var main_tricks_keys = Object.keys(dic_main_tricks);
+
 
 	// Créer la liste des "other tricks" //
 
-	var liste_other_tricks = [];
-	for (var key in dic_other_tricks) {
-	    liste_other_tricks.push(dic_other_tricks[key][0]);
-	}
+	var other_tricks_keys = Object.keys(dic_other_tricks);
 
 	// -------------- Faire apparaître main_tricks labels ---------------- //
 
     // Récupérer le "conteneur des labels"
-    var MainTricksContainer = document.getElementById('main-tricks-container');
+
 
     // Parcourir la liste et créer les labels correspondants
-    liste_main_tricks.forEach(function(element) {
+    main_tricks_keys.forEach(function(key) {
+    	label_name = dic_main_tricks[key][0]
         var label = document.createElement('label');
-        label.textContent = element;
-        label.className = 'clickable-label';
+        label.textContent = label_name;
+
+        // Tester si uniquement fakie/normal
+
+        if (dic_main_tricks[key][1][0] === "none") {
+        	label.className = 'clickable-label green';
+        }
+        else if (dic_main_tricks[key][1][1] === "none") {
+        	label.className = 'clickable-label blue';
+        }
+        else {
+        	label.className = 'clickable-label';
+        }
+
 
         // Ajouter un événement de clic à chaque label
         label.addEventListener('click', function() {
-            console.log('Vous avez cliqué sur ' + element);
 
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth' // Optionnel pour un défilement fluide
             });
 
-            traiter_clic_sur_main_trick(element)
+            traiter_clic_sur_main_trick(key);
 
         });
 
@@ -486,24 +509,35 @@
     // ---------------- Faire apparaître other_tricks labels --------------- //
 
     // Récupérer le "conteneur des labels"
-    var OtherTricksContainer = document.getElementById('other-tricks-container');
+    
 
     // Parcourir la liste et créer les labels correspondants
-    liste_other_tricks.forEach(function(element) {
+    other_tricks_keys.forEach(function(key) {
         var label = document.createElement('label');
-        label.textContent = element;
+        label.textContent = key;
         label.className = 'clickable-label';
+
+
+        if (dic_other_tricks[key][1][0] === "none") {
+        	label.className = 'clickable-label green';
+        }
+        else if (dic_other_tricks[key][1][1] === "none") {
+        	label.className = 'clickable-label blue';
+        }
+        else {
+        	label.className = 'clickable-label';
+        }
 
         // Ajouter un événement de clic à chaque label
         label.addEventListener('click', function() {
-            console.log('Vous avez cliqué sur ' + element);
+            console.log('Vous avez cliqué sur ' + key);
 
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth' // Optionnel pour un défilement fluide
             });
 
-            traiter_clic_sur_other_trick(element)
+            traiter_clic_sur_other_trick(key);
 
         });
 
@@ -514,17 +548,15 @@
     // ---------------------------------------------------------------------- //
 
 
-    function traiter_clic_sur_main_trick(element) {
-    	trick_squelette = trouver_Cle_Liste_Cle_ParValeur(dic_main_tricks, element)
-        console.log(trick_squelette)
+    function traiter_clic_sur_main_trick(loc_trick_squelette) {
 
-        var liste_bases_squelette = trick_squelette.match(/[^\/]+\/?/g);
+        var liste_bases_squelette = loc_trick_squelette.match(/[^\/]+\/?/g);
 
         // transformer ce trick_squelette en une liste 
 
         // On a juste besoin de la liste
 
-        var valeurs_dans_menus_deroulant = []
+        var valeurs_dans_menus_deroulant = [];
 
         if (liste_bases_squelette === null) {
         	var longueur = 0;
@@ -537,20 +569,20 @@
         // Changer les tricks en "vrai noms":
 
         if (longueur === 0) {
-        	valeurs_dans_menus_deroulant = ["", "", ""]
+        	valeurs_dans_menus_deroulant = ["", "", ""];
         }
         else if (longueur === 1) {
         	value_1 = liste_bases_squelette[0];
-        	idx = TrouverIndex(value_1)
+        	idx = TrouverIndex(value_1);
 
         	if (idx < 4) {
-        		valeurs_dans_menus_deroulant = [value_1, "", ""]
+        		valeurs_dans_menus_deroulant = [value_1, "", ""];
         	}
         	else if (idx < 8) {
-        		valeurs_dans_menus_deroulant = ["", value_1, ""]
+        		valeurs_dans_menus_deroulant = ["", value_1, ""];
         	}
         	else {
-        		valeurs_dans_menus_deroulant = ["", "", value_1]
+        		valeurs_dans_menus_deroulant = ["", "", value_1];
         	}
 
         	
@@ -565,14 +597,14 @@
 
         	if (idx_1 < 4) {
         		if (idx_2 < 8) {
-        			valeurs_dans_menus_deroulant = [value_1, value_2, ""]
+        			valeurs_dans_menus_deroulant = [value_1, value_2, ""];
         		}
         		else if (idx_2 < 12) {
-        			valeurs_dans_menus_deroulant = [value_1, "", value_2]
+        			valeurs_dans_menus_deroulant = [value_1, "", value_2];
         		}
         	}
         	else if (idx_1 < 8) {
-        		valeurs_dans_menus_deroulant = ["", value_1, value_2]
+        		valeurs_dans_menus_deroulant = ["", value_1, value_2];
         	}
 
 
@@ -582,11 +614,11 @@
         	value_2 = liste_bases_squelette[1];
         	value_3 = liste_bases_squelette[2];
 
-        	idx_1 = TrouverIndex(value_1)
-        	idx_2 = TrouverIndex(value_2)
-        	idx_3 = TrouverIndex(value_3)
+        	idx_1 = TrouverIndex(value_1);
+        	idx_2 = TrouverIndex(value_2);
+        	idx_3 = TrouverIndex(value_3);
 
-        	valeurs_dans_menus_deroulant = [value_1, value_2, value_3]
+        	valeurs_dans_menus_deroulant = [value_1, value_2, value_3];
 
         
 
@@ -614,7 +646,7 @@
 	function TrouverIndex(nom){
 		idx = liste_morceaux_base.indexOf(nom);
 
-		return idx
+		return idx;
 
 	}
 
@@ -626,16 +658,24 @@
 
 		
 		stance = selecteur_stance.value
+
 		if (stance === "normal") {
-			trick_name = dic_other_tricks[element][0]
-			ID = dic_other_tricks[element][1][0]
+			trick_name = dic_other_tricks[element][0];
+			ID = dic_other_tricks[element][1][0];
 		}
 		if (stance === "fakie") {
-			trick_name = "fakie " + dic_other_tricks[element][0]
-			ID = dic_other_tricks[element][1][1]
+			trick_name = "fakie " + dic_other_tricks[element][0];
+			ID = dic_other_tricks[element][1][1];
 		}
 
-		chemin_acces = "https://lh3.googleusercontent.com/pw/" + ID 
+
+		if (ID == "" || ID == "none") {
+	        const message = stance == "normal" ? "=> The trick is only available in fakie stance" : "=> The trick is only available in normal stance";
+	        montrer_message_erreur(message, "yellow");
+	    }
+
+
+		chemin_acces = "https://lh3.googleusercontent.com/pw/" + ID;
 
 		trick_image.src = chemin_acces;
 	    trick_image.title = trick_name;
@@ -646,6 +686,21 @@
 		// Trouver l'url
 
 	}
+
+
+
+
+
+
+    // Parcourir la liste et créer les labels correspondants
+    liste_never_done.forEach(function(element) {
+        var label = document.createElement('label');
+        label.textContent = element;
+
+        // Ajouter le label au conteneur
+        NeverDone.appendChild(label);
+    });
+
 
 	</script>
 	
