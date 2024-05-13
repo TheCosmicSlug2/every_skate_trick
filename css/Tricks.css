@@ -1,17 +1,10 @@
 body {
 	margin-bottom: 50px; /* Ajustez cette valeur en fonction de la hauteur de votre barre des tâches */
-}
-
-h1 {
-	font-size: 40px;
 	color: white;
 }
 
-h2 {
-	color: white;
-	font-size: 30px;
-	text-align: center;
-	text-decoration: underline;
+hr {
+	width: 100px;
 }
 
 h3 {
@@ -23,52 +16,16 @@ em {
 	font-weight: bold;
 }
 
-.case_jaune {
+.case-jaune {
 	background-color: yellow;
 }
 
-.case_verte {
+.case-verte {
 	background-color: lightgreen
 }
 
-.case_rouge {
+.case-rouge {
 	background-color: red
-}
-
-.petite_section {
-	padding: 20px;
-	border: 4px solid yellow;  
-	font-size: 15px;
-	border-style: solid;
-	color: black;  
-	text-align: left;  
-	margin-bottom: 10px;
-}
-
-
-.section_images {
-	padding: 20px;
-} 
-
-.frame {
-  	display: flex;
-  	align-items: center; 
-}
-
-.image {
-	padding: 5px;
-    border: 3px solid black;
-    margin: auto;
-   	display: inline-block;
-    box-sizing: border-box;
-}
-
-.legende_photos {
-	background-color:black;
-	color: white;  
-	font-size: 15px;
-	text-align: center;
-	font-style: italic;
 }
 
 .jeu {
@@ -77,22 +34,17 @@ em {
 	padding: 10px;
 	border-style: solid;
 	background-color: dimgray;
-	color: white;  
 	text-align: center;
 }
 
-.contenant_select_image {
-	dispselct_imagelay: flex;
-    align-items: center;
-}
-
-.aligner_horizontalement {
+.aligner-horizontalement {
 	display: flex;
 	justify-content: center;
 	padding: 20px;
 }
 
-.aligner_horizontalement select {
+
+.aligner-horizontalement select {
   margin-right: 10px; /* Espacement entre les menus déroulants */
 }
 
@@ -100,22 +52,21 @@ em {
     font-size: 20px; /* Taille de police par défaut */
  }
 
-.diagonale {
-	position: absolute; /* Position absolue */
-    top: 2000px; /* Distance depuis le haut */
-    left: 400px;
-    width: 700px; /* Largeur du conteneur */
+ #trick-image {
+ 	max-width: 100%; /* La largeur maximale de l'image sera égale à la largeur de son conteneur */
+    height: auto; /* Permet à la hauteur de l'image de s'ajuster automatiquement en maintenant les proportions */
  }
 
- .diagonale span {
-    display: block;
-    font-size: 40px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-35deg); /* Rotation de 45 degrés */
-    transform-origin: 0 0; /* Point d'origine de la rotation */
-  }
+ #description-trick {
+ 	justify-content: center;
+    margin-right: 10px; /* Marge à droite pour séparer le paragraphe du bouton */
+}
 
+
+ .image-description {
+ 	text-align: right;
+ 	border: 2px black;
+ }
 
  /* Style pour les labels */
 .clickable-label {
@@ -128,6 +79,17 @@ em {
 .clickable-label:hover {
     transform: scale(1.1); /* Agrandit le label de 10% */
     text-decoration: underline;
+}
+
+
+
+
+.blue {
+	color: #ADD8E6;
+}
+
+.green {
+	color: #90EE90;
 }
 
 #container {
@@ -149,4 +111,11 @@ em {
     flex-direction: column;
     text-align: left;
 
+}
+
+#never-done {
+	display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: left;
 }
