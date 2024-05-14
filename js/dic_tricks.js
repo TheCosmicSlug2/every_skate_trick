@@ -294,8 +294,8 @@ const dic_other_tricks = {"Ollie" : ["Ollie", [
 							"AP1GczN2XB4V7ddXL1gxtMdSUMpilmabHJwOmaUSnwSbAT5LgfO-a-1orlv9tXMnePZ9UuMhsWvTQ3WqB8E1fSY7vCL-lp0cw4s5YO5w44Uv1_83FQDPyyScRT3SRXdEYm1wo3VmQHsr3Zl1bt5wwgNFzLfq"], ["none"]],
 
 						"Ollie late BS shuv" : ["Ollie late BS shuv", [
-							"AP1GczPwJbw05K5pV8Ncwj5DtHUQAYGWnw0paa-TOX7G2ScYaM_9e2z2-C3zaoeLBPk_-LmTBI-yIsq98aURuFoam43uYyy8Hvlfja8o_ljl6nq12kRPY7hbszlKHWSw6mCasqsKflt7I59fshxuz2lxBGTk", 
-							"none"], ["none"]],
+							"AP1GczOEnIhVwG5Lx8hbLHoO-Qtjkb07KLf0aUYu36JYlUHynFVNABSGrx-TBgJEg4hV3xfohfYYw33owXQqn6mvpHex7QaVrZLi6_9unb370MEJAoF-G8DAGwdsPls9GRjCyMTObTNOFFt2CeSaBMziHkDi", 
+							"AP1GczPwJbw05K5pV8Ncwj5DtHUQAYGWnw0paa-TOX7G2ScYaM_9e2z2-C3zaoeLBPk_-LmTBI-yIsq98aURuFoam43uYyy8Hvlfja8o_ljl6nq12kRPY7hbszlKHWSw6mCasqsKflt7I59fshxuz2lxBGTk"], ["none"]],
 
 						"Ollie late flip BS BV revert" : ["Ollie late flip BS BV revert", [
 							"none", 
@@ -313,6 +313,27 @@ const dic_other_tricks = {"Ollie" : ["Ollie", [
 							"none", 
 							"AP1GczPg6keAd6RJY_XaQ6WiOyANWO2JlpvA-zgyK1Ks4erW0KdtfhHkbZ3tvRyi-Q0DYwWOko1rdaVW2euNFbkAXFkze5nURmO7lP341nhIKoLn6stJz67j-YVRGeXBAjmd4lvdTGcU-ycKD-4tv6ILZVv5"], ["none"]],
 						
+						"Ollie BS BV" : ["Ollie BS BV", [
+							"AP1GczMPkz9wlSshRIOVHt7dD4w61jtXiJkChGyUCK6etUQeHA06EQIhaK_Xde814rFzQnfqfK4vXQjh_O_Oq07yg-MEZBErtt0w_rAnPM7wh-yKH8a0KhTlgitsl3XMHMygX6KN_i1MwP9Fc-a6Lnj4Kbd3", 
+							"none"], ["none"]],
+						
+						"Ollie 360 FS BV" : ["Ollie 360 FS BV", [
+							"AP1GczOXf_mU-nkg5D_TwqAKcmKIY_23O59PNlpxED8jjy4Y0QaO6OfwOY5IRNvwDAFj989xd3jNC12y_8qmFlF1nY95ftV0uV5yOsCGgd85S8xAfnPPAzwUuoxBE7oki6isVg02KHrGiokj48euEl_KiD7d", 
+							"none"], ["none"]],
+						
+						"Ollie late flip FS BV" : ["Ollie late flip FS BV", [
+							"AP1GczO_WRmPlv7DKHFk-Cv4m0wHLUoSTOzZgPhotEcly8VOw7OdMXua-C_c8HKd9b66Rqj4_ma3X4XDBdoJyrQWm-4tj8LcRFcreUsrJhPR7mKl1jWFJJKasIrxfPxKScwpHSrMeebBRDy7vr3Ll-n50OgC", 
+							"none"], ["none"]],
+						
+						"Ollie FS BV" : ["Ollie FS BV", [
+							"AP1GczO3nUAwYewePXuGoqd4vg70KG_th4Oo2UrbiiE1uQmPua5Ot2_BDQvvB85P8snRXKQbPjHSqZ7jMjqeFuQazvbpn5Y0O7BCNIWAZTxPQHpnb7UygVDxKcJpkMY-rqkmtCQiA3B5nk5KERLK_-Z4Gkga", 
+							"none"], ["none"]],
+						
+						"Ollie north FS BV BS revert" : ["Ollie north FS body varial BS revert", [
+							"AP1GczNNuw6Sl5jwVm0-ZmHPjjn8rDerl5pWN5Buk1c3KqMML4l5Xz8YiDCavqQZJuhSvqTQDv5pUKXnQHXoWsBQHGRfdfrzLxrZ1ycSWpC6TXODaUW_qTeRBL30uZLIhCERLOOGoPG6NL6Vzly7IhDUxIQM", 
+							"none"], ["none"]],
+
+
 						"BS shuv revert FS 180" : ["BS shuv revert FS 180", [
 							"none", 
 							"AP1GczNF4Bs3Vao5LHVfyTFqcxoVktBIAOTtt8MpdKBuxdzH5Tc4D9mm9-Zo1pgzUZy_3SJkQe-gzbnPFYsOC6pOcgJqls6o-Jsbiv83l_bjBv_rQGqnFxbvfv5J7_YZLX6ieo0RozdLVHckNPyejWFujUCq"], ["none"]],
@@ -339,7 +360,7 @@ const dic_other_tricks = {"Ollie" : ["Ollie", [
 							"AP1GczMHdzyk8kjFcLU4SUhAsWH-z1OlJ7PdkyRHChiYBUZMrTf99PqkMVf0X7K8grtHb5NR6wXglYag0AE1AUdQf27IhxOA7yBuamS7qfMbD5vISQllh5u9nsgZd7K9i0R5wq2s7EDxHrhXtIx0WXz56Bnj"], ["none"]],
 
 						"Hospital FLip" : ["Hospital Flip", [
-							"none", 
+							"AP1GczP726kO-v1vLVFi3Qq32WkZAKzssAsszxvMgtWO-41VyksK-ut2bSXHmZsf32RrCUUybSPG7OuPzAVVal-VCvwT23NyEvhc_6vOQW3qFWKipgm6dFIX3eleDIbLRZQsuborBcRPoNb9fiS428OhgvJO", 
 							"AP1GczPIDw-eS0USDFwk0QlgB5utG31Z6rc1GpHENJIEmVy4eWPHTXfFKuscDdfAbgdab94rAKs1uD1tR58V2OsTg81Ypd9mx-TuLXsOBl2_TRMDcDbpZEZEfO_dUUOgDWf9m1VNTG1h50N2ZxmgIQVKN2Au"], ["none"]],
 						
 						"Heelflip Late Flip" : ["Heelflip Late Flip", [
@@ -380,33 +401,7 @@ const dic_other_tricks = {"Ollie" : ["Ollie", [
 							"AP1GczM1m0ich3qJQCrx02_F2BlsOwiK2xQ4nNFa_GSauhXACtJ7OcI5kaS3hk-0kxbx4fxwjq4nI6_ACyakrZHHk6KcU5y-uXu_tmbbWoPWYwUo6TL8MAGXhtz0S2UZ0LGbG3_wjPl3cFh3JUrEsvwBKxKd", 
 							"none"], ["none"]],
 						
-						"Hospital Flip" : ["Hospital Flip", [
-							"AP1GczP726kO-v1vLVFi3Qq32WkZAKzssAsszxvMgtWO-41VyksK-ut2bSXHmZsf32RrCUUybSPG7OuPzAVVal-VCvwT23NyEvhc_6vOQW3qFWKipgm6dFIX3eleDIbLRZQsuborBcRPoNb9fiS428OhgvJO", 
-							"none"], ["none"]],
-						
-						"Ollie BS BV" : ["Ollie BS BV", [
-							"AP1GczMPkz9wlSshRIOVHt7dD4w61jtXiJkChGyUCK6etUQeHA06EQIhaK_Xde814rFzQnfqfK4vXQjh_O_Oq07yg-MEZBErtt0w_rAnPM7wh-yKH8a0KhTlgitsl3XMHMygX6KN_i1MwP9Fc-a6Lnj4Kbd3", 
-							"none"], ["none"]],
-						
-						"Ollie 360 FS BV" : ["Ollie 360 FS BV", [
-							"AP1GczOXf_mU-nkg5D_TwqAKcmKIY_23O59PNlpxED8jjy4Y0QaO6OfwOY5IRNvwDAFj989xd3jNC12y_8qmFlF1nY95ftV0uV5yOsCGgd85S8xAfnPPAzwUuoxBE7oki6isVg02KHrGiokj48euEl_KiD7d", 
-							"none"], ["none"]],
-						
-						"ollie late flip FS BV" : ["ollie late flip FS BV", [
-							"AP1GczO_WRmPlv7DKHFk-Cv4m0wHLUoSTOzZgPhotEcly8VOw7OdMXua-C_c8HKd9b66Rqj4_ma3X4XDBdoJyrQWm-4tj8LcRFcreUsrJhPR7mKl1jWFJJKasIrxfPxKScwpHSrMeebBRDy7vr3Ll-n50OgC", 
-							"none"], ["none"]],
-						
-						"Ollie FS BV" : ["Ollie FS BV", [
-							"AP1GczO3nUAwYewePXuGoqd4vg70KG_th4Oo2UrbiiE1uQmPua5Ot2_BDQvvB85P8snRXKQbPjHSqZ7jMjqeFuQazvbpn5Y0O7BCNIWAZTxPQHpnb7UygVDxKcJpkMY-rqkmtCQiA3B5nk5KERLK_-Z4Gkga", 
-							"none"], ["none"]],
-						
-						"Ollie late BS shuv" : ["Ollie late BS shuv", [
-							"AP1GczOEnIhVwG5Lx8hbLHoO-Qtjkb07KLf0aUYu36JYlUHynFVNABSGrx-TBgJEg4hV3xfohfYYw33owXQqn6mvpHex7QaVrZLi6_9unb370MEJAoF-G8DAGwdsPls9GRjCyMTObTNOFFt2CeSaBMziHkDi", 
-							"none"], ["none"]],
-						
-						"Ollie north FS body varial BS revert" : ["Ollie north FS body varial BS revert", [
-							"AP1GczNNuw6Sl5jwVm0-ZmHPjjn8rDerl5pWN5Buk1c3KqMML4l5Xz8YiDCavqQZJuhSvqTQDv5pUKXnQHXoWsBQHGRfdfrzLxrZ1ycSWpC6TXODaUW_qTeRBL30uZLIhCERLOOGoPG6NL6Vzly7IhDUxIQM", 
-							"none"], ["none"]],
+
 
 						/*
 						
