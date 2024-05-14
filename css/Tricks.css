@@ -1,1 +1,119 @@
 
+body {
+	margin-bottom: 50px; /* Ajustez cette valeur en fonction de la hauteur de votre barre des tâches */
+	color: white;
+}
+
+hr {
+	width: 100px;
+}
+
+h3 {
+	font-size: 20px;
+	color: white;
+}
+
+em {
+	font-weight: bold;
+}
+
+.case-jaune {
+	background-color: yellow;
+}
+
+.case-verte {
+	background-color: lightgreen
+}
+
+.case-rouge {
+	background-color: red
+}
+
+.jeu {
+	border: 2px black;  
+	font-size: 15px;
+	padding: 10px;
+	border-style: solid;
+	background-color: dimgray;
+	text-align: center;
+}
+
+.aligner-horizontalement {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+
+.aligner-horizontalement select {
+  margin-right: 10px; /* Espacement entre les menus déroulants */
+}
+
+.trick em {
+    font-size: 20px; /* Taille de police par défaut */
+ }
+
+ #trick-image {
+ 	max-width: 100%; /* La largeur maximale de l'image sera égale à la largeur de son conteneur */
+    height: auto; /* Permet à la hauteur de l'image de s'ajuster automatiquement en maintenant les proportions */
+ }
+
+ #description-trick {
+ 	justify-content: center;
+    margin-right: 10px; /* Marge à droite pour séparer le paragraphe du bouton */
+}
+
+
+ .image-description {
+ 	text-align: right;
+ 	border: 2px black;
+ }
+
+ /* Style pour les labels */
+.clickable-label {
+    cursor: pointer;
+    width: fit-content;
+    padding: 0px;
+    margin: 0px;
+}
+
+.clickable-label:hover {
+    transform: scale(1.1); /* Agrandit le label de 10% */
+    text-decoration: underline;
+}
+
+.blue {
+	color: #ADD8E6;
+}
+
+.green {
+	color: #90EE90;
+}
+
+#container {
+	display: flex;
+}
+
+/* Style pour le conteneur principal */
+#main-tricks-container {
+	display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* Style pour le conteneur principal */
+#other-tricks-container {
+	display: flex;
+	flex: 1;
+    flex-direction: column;
+    text-align: left;
+
+}
+
+#never-done {
+	display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: left;
+}
