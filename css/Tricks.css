@@ -1,4 +1,3 @@
-
 body {
 	margin-bottom: 50px; /* Ajustez cette valeur en fonction de la hauteur de votre barre des tâches */
 	color: white;
@@ -17,25 +16,49 @@ em {
 	font-weight: bold;
 }
 
+.menu {
+	padding: 3px;
+	border-color: black;
+}
+
 .case-jaune {
 	background-color: yellow;
 }
 
 .case-verte {
-	background-color: lightgreen
+	background-color: lightgreen;
 }
 
 .case-rouge {
-	background-color: red
+	background-color: red;
 }
 
-.jeu {
+.page {
 	border: 2px black;  
 	font-size: 15px;
 	padding: 10px;
 	border-style: solid;
 	background-color: dimgray;
 	text-align: center;
+}
+
+.choix_section {
+	margin: 20px;
+	text-align: left;
+}
+
+.button_section {
+	margin: 2px;
+	padding: 10px;
+	background-color: dimgray;
+	color: white;
+	border: 2px solid white;
+	transition: transform 0.3s ease;
+}
+
+.button_section:hover {
+	background-color: #555555;
+	transform: scale(1.1); /* Scale the button size to 110% on hover */
 }
 
 .aligner-horizontalement {
@@ -82,6 +105,7 @@ em {
     text-decoration: underline;
 }
 
+
 .blue {
 	color: #ADD8E6;
 }
@@ -116,4 +140,27 @@ em {
     flex: 1;
     flex-direction: column;
     text-align: left;
+}
+
+.explanation {
+	margin: 20px;
+	padding: 20px;
+	border: 2px solid white;
+}
+
+.color-example {
+	display: inline-block;
+	margin: 10px;
+}
+
+.color-example p {
+	display: inline;
+}
+
+.credits {
+	text-align: left;
+}
+
+.credits a{
+	color: lightcyan;
 }
