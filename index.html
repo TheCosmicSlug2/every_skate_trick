@@ -8,75 +8,139 @@
 </head>
 
 <body>
-	<section class="jeu">
+	<section class="page">
 
-		<select id="choix-stance" onchange="calculer()">
-				<option value="normal"> Stance : Normal </option>
-				<option value="fakie"> Stance : Fakie </option>
-		</select>
+		<div class="choix_section">
 
-		<div class="aligner-horizontalement">			
+			<button class="button_section" onclick="show_section_jeu()">Tricks</button>
+			<button class="button_section" onclick="show_section_explanations()">How to use</button>
 
-			<select id="choix-180" onchange="calculer()">
-				<option value=""> (nothing) </option>
-				<option value="1BS180/"> BS 180 </option>
-				<option value="2BS180/"> BS 360 </option>
-				<option value="1FS180/"> FS 180 </option>
-				<option value="2FS180/"> FS 360 </option>
-			</select>
-
-			<select id="choix-shuv" onchange="calculer()">
-				<option value=""> (nothing) </option>
-				<option value="1BSshuv/"> BS shuv 180 </option>
-				<option value="2BSshuv/"> BS shuv 360 </option>
-				<option value="1FSshuv/"> FS shuv 180 </option>
-				<option value="2FSshuv/"> FS shuv 360 </option>
-			</select>
-
-			<select id="choix-flip" onchange="calculer()">
-				<option value=""> (nothing) </option>
-				<option value="1kickflip/"> 1 kickflip </option>
-				<option value="2kickflip/"> 2 kickflip </option>
-				<option value="1heelflip/"> 1 heelflip </option>
-				<option value="2heelflip/"> 2 heelflip </option>
-			</select>
-
-			<button id="reset" onclick="reset_menus()">Reset</button>
 		</div>
 
-		<p><em style="font-size: 20px;">=</em></p>
+		<section id="jeu">
 
-		<p id="nom-trick-ecran">
-			<em style="font-size: 20px;"> No board movement !</em>
-		</p>
+			<select id="choix-stance" class="menu" onchange="calculer()">
+					<option value="normal"> Stance : Normal </option>
+					<option value="fakie"> Stance : Fakie </option>
+			</select>
 
-		<img id="trick-image" height="300px" >
+			<div class="aligner-horizontalement">			
 
-		<p id="message-erreur"></p>
+				<select id="choix-180" class="menu" onchange="calculer()">
+					<option value=""> (nothing) </option>
+					<option value="1BS180/"> BS 180 </option>
+					<option value="2BS180/"> BS 360 </option>
+					<option value="1FS180/"> FS 180 </option>
+					<option value="2FS180/"> FS 360 </option>
+				</select>
 
-		<p class="blue">"exemple" : Only available in "Normal" stance</p>
+				<select id="choix-shuv" class="menu" onchange="calculer()">
+					<option value=""> (nothing) </option>
+					<option value="1BSshuv/"> BS shuv 180 </option>
+					<option value="2BSshuv/"> BS shuv 360 </option>
+					<option value="1FSshuv/"> FS shuv 180 </option>
+					<option value="2FSshuv/"> FS shuv 360 </option>
+				</select>
 
-		<p class="green">"exemple" : Only available in "fakie" stance</p>
+				<select id="choix-flip" class="menu" onchange="calculer()">
+					<option value=""> (nothing) </option>
+					<option value="1kickflip/"> 1 kickflip </option>
+					<option value="2kickflip/"> 2 kickflip </option>
+					<option value="1heelflip/"> 1 heelflip </option>
+					<option value="2heelflip/"> 2 heelflip </option>
+				</select>
 
-		<p>"exemple" : Available in both stances</p>
-
-		
-
-		<div id="container">
-
-			<div id="main-tricks-container">
-				<h3>Main flat tricks : </h3>
+				<button id="reset" onclick="reset_menus()">Reset</button>
 			</div>
 
-			<div id="other-tricks-container">
-				<h3>Other tricks : </h3>
+			<p><em style="font-size: 20px;">=</em></p>
+
+			<p id="nom-trick-ecran">
+				<em style="font-size: 20px;"> No board movement !</em>
+			</p>
+
+			<img id="trick-image" height="300px" >
+
+			<p id="message-erreur"></p>
+
+			<hr>
+
+			<div id="container">
+
+				<div id="main-tricks-container">
+					<h3>Main flat tricks : </h3>
+				</div>
+
+				<div id="other-tricks-container">
+					<h3>Other tricks : </h3>
+				</div>
 			</div>
-		</div>
 
-		<div id="never-done">
-			<h3>Never done before : </h3>
-		</div>
+			<div id="never-done">
+				<h3>Never done before : </h3>
+			</div>
 
+		</section>
+
+
+
+		<section id="consignes">
+
+			<div class="explanation">
+
+				<p>Combine board rotations with the <em>dropdown menus</em> :</p>
+
+				<div class="color-example">
+
+					<p style="background-color: lightgreen; color: black;"> x x x x</p>
+					<p>: will lead to a trick</p>
+
+				</div>
+
+				<br>
+
+				<div class="color-example">
+
+					<p style="background-color: red; color: black;"> x x x x</p>
+					<p>: won't lead to a trick</p>
+
+				</div>
+
+				<hr>
+				<p>OR</p>
+				<hr>
+				<br>
+				<p>Select the trick in the <em>list</em> below the menus</p>
+
+				
+
+				<p>"example" : Available in both stances</p>
+
+				<p class="blue">"example" : Only available in "Normal" stance</p>
+
+				<p class="green">"example" : Only available in "fakie" stance</p>
+
+			</div>
+
+			<p>Depending of your internet speed, the gifs might take some time to load</p>
+
+			<div class="credits">
+				<p>Credits : </p>
+
+				<p><a href="https://www.youtube.com/watch?v=z3_drB7TdZc" target="_blank">I finally landed EVERY flatground trick (Spencer Barton)</a></p>
+
+				<p><a href="https://www.youtube.com/@JonnyGiger" target="_blank">Johnny Giger YouTube channel</a></p>
+
+				<p><a href="https://www.youtube.com/@berrics" target="_blank">The Berrics YouTube channel</a></p>
+
+				<p>And some other stuff that I don't remember</p>
+			</div>
+
+			
+
+
+			
+		</section>
 
 
 	</section>
@@ -89,6 +153,23 @@
 <script src="js/dic_tricks.js"></script>
 
 <script>
+
+	// On montre la bonne section + initialiser les fonctions de bouton section 
+
+	section_jeu = document.getElementById("jeu")
+	section_explanations = document.getElementById("consignes")
+
+	function show_section_jeu() {
+		section_jeu.style.display = "block";
+		section_explanations.style.display = "none";
+	}
+
+	function show_section_explanations() {
+		section_jeu.style.display = "none";
+		section_explanations.style.display = "block";
+	}
+
+	show_section_jeu()
 
 
 	// on "get" l'ID du titre de l'image, du message d'erreur et de l'image sur la page  
