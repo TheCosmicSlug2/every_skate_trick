@@ -183,26 +183,6 @@ h3 {
 #description-trick { margin-right: 10px; }
 .image-description { padding: 16px; border: 1px solid black; border-radius: 10px; text-align: right; }
 footer { max-width: 1080px; margin: 24px auto 0; padding: 12px; color: white; font-size: 12px; text-align: center; }
-@media (max-width: 760px) {
-  body { padding: 24px 16px 40px; }
-  .page { padding: 22px; }
-  .aligner-horizontalement { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  #reset { width: 100%; }
-  #container { gap: 16px; }
-  #main-tricks-container, #other-tricks-container, #never-done { padding: 18px; }
-}
-@media (max-width: 540px) {
-  body { padding: 12px 10px 30px; }
-  .page { padding: 18px 14px; border-radius: 14px; }
-  .choix_section { margin-bottom: 24px; padding-bottom: 18px; }
-  .button_section { flex: 1; padding: 10px 12px; }
-  .aligner-horizontalement { gap: 10px; }
-  .menu { padding: 10px 6px; font-size: 13px; }
-  #container { grid-template-columns: minmax(0, 1fr); }
-  .clickable-label { padding: 10px; }
-  .explanation, .credits { padding: 20px 14px; }
-  #trick-image { max-height: 300px; }
-}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
@@ -231,3 +211,53 @@ button.clickable-label.is-selected { background: var(--hover); border-color: whi
 }
 .compatible-option:hover { background: #555555; border-color: white; color: white; }
 .menu option.option-directe { font-weight: bold; }
+
+/* Adaptation mobile : aucun élément n'impose sa largeur au conteneur. */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { min-width: 0; }
+.page, #jeu, #consignes, .choix_section, .menu-with-options, .compatible-options { min-width: 0; max-width: 100%; }
+.choix_section > *, .aligner-horizontalement > *, #container > * { min-width: 0; }
+.menu { min-width: 0; width: 100%; font-size: 16px; }
+#choix-stance { width: min(100%, 230px); min-width: 0; }
+.compatible-option { min-width: 0; white-space: normal; }
+#trick-image { width: auto; height: auto; max-width: 100%; max-height: 380px; }
+h3, .button_section, #never-done > label, footer { overflow-wrap: anywhere; }
+@media (max-width: 900px) {
+  body { padding: 22px 16px 36px; }
+  .page { padding: 22px; }
+  .aligner-horizontalement { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #reset { width: 100%; }
+}
+@media (max-width: 700px) {
+  body {
+    padding-top: 12px;
+    padding-left: max(10px, env(safe-area-inset-left));
+    padding-right: max(10px, env(safe-area-inset-right));
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+  .page { width: 100%; padding: 18px 14px; border-radius: 14px; }
+  .choix_section { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 22px; padding-bottom: 18px; }
+  .button_section { padding: 10px 8px; min-height: 46px; }
+  .aligner-horizontalement { grid-template-columns: minmax(0, 1fr); gap: 18px; width: 100%; }
+  #choix-stance { width: 100%; }
+  .menu { min-height: 48px; padding: 11px 12px; font-size: 16px; }
+  #reset { min-height: 48px; }
+  .compatible-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+  .compatible-option { width: 100%; min-height: 46px; padding: 9px 10px; font-size: 14px; line-height: 1.4; }
+  #container { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-top: 22px; }
+  #main-tricks-container, #other-tricks-container, #never-done { padding: 16px; }
+  button.clickable-label { width: 100%; min-height: 46px; padding: 10px; }
+  #never-done > label { padding: 8px 4px; }
+  .explanation, .credits { padding: 18px 12px; }
+  .color-example { max-width: 100%; margin: 8px 0; }
+  #trick-image { width: 100%; max-height: 300px; max-height: min(300px, 48svh); }
+  footer { margin-top: 16px; padding: 10px 4px; }
+}
+@media (max-width: 359px) {
+  .page { padding: 14px 10px; }
+  .compatible-options { grid-template-columns: minmax(0, 1fr); }
+  h3 { font-size: 18px; }
+}
+@media (hover: none) {
+  button, select { -webkit-tap-highlight-color: #ffffff33; }
+}
